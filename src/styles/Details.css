@@ -1,0 +1,137 @@
+.home-label {
+    color: #5E5E5E;
+    cursor: pointer;
+}
+
+.home-label:hover {
+    text-decoration: underline;
+}
+
+.color-item {
+    width: 123px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D0D0D0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border 0.2s ease;
+}
+
+.content-d {
+    background-color: white;
+    border-radius: 14px;
+}
+
+.color-item:hover {
+    border: 1px solid black;
+}
+
+.cart-field {
+    display: flex;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.cant {
+    width: 150px;
+    display: flex;
+    border: 1px solid rgb(73, 73, 73);
+    border-radius: 5px;
+}
+
+.cart-field input {
+    outline: none;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.btn-add-cart {
+    width: 100%;
+    padding: 12px 0px;
+    background: none;
+    border: 1px solid black;
+    color: rgb(63, 63, 63);
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.btn-add-cart:hover {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.8);
+}
+
+.btns-inc {
+    font-size: 0.8rem;
+}
+
+.btns-inc button {
+    width: 100%;
+    border: 1px solid #D8D8D8;
+    padding: 2px 3px;
+    color: gray;
+}
+
+.btns-inc .btn-a {
+    border-top-right-radius: 5px;
+}
+
+.btns-inc .btn-b {
+    border-bottom-right-radius: 5px;
+}
+
+.btn-buy {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px 0px;
+    background-color: #393939;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-buy:hover {
+    transform: scale(1.01);
+}
+
+.best-b {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    gap: 15px;
+}
+
+.best-b::-webkit-scrollbar {
+    display: none;
+}
+
+.best-item {
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px;
+    height: 100px;
+    width: 140px;
+    cursor: pointer;
+    flex: 0 0 auto;
+    transition: filter 0.2s ease;
+}
+
+.best-item:hover {
+    filter: brightness(1.1);
+}
+
+.hour {
+    display: flex;
+    gap: 5px;
+}
+
+.hour>span {
+    background-color: #F5F5F5;
+    padding: 3px 10px;
+    border-radius: 4px;
+}

@@ -1,0 +1,83 @@
+.admin-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.nav-admin {
+    padding: 15px 20px;
+    color: white;
+    background-color: #1A1A1A;
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.content-main {
+    display: flex;
+    flex: 1;
+}
+
+.list-menu {
+    list-style: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 0;
+    margin: 0;
+}
+
+.list-menu li {
+    padding: 7px 5px;
+    cursor: pointer;
+}
+
+.menu-admin {
+    background-color: #e8e8e8;
+    padding: 20px 15px;
+    width: 250px;
+}
+
+.content-menu {
+    width: 100%;
+    background-color: #F1F1F1;
+}
+
+.menu-active {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.btn-main-admin {
+    background-color: #303030;
+    border: none;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn-main-admin:hover {
+    background-color: #464646;
+}
+
+.content-table {
+    background-color: white;
+    padding: 5px 0;
+    font-size: 0.9rem;
+}
+
+.table-product th {
+    background-color: #F7F7F7;
+    color: #474747;
+}
+
+.status-active {
+    background-color: #AFFEBF;
+    color: #0E5849;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
