@@ -1,52 +1,77 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/Home.css';
-import { ViewScrollApp } from './ViewScrollApp';
-import { BarMessageApp } from './BarMessageApp';
-import { ReviewApp } from './ReviewApp';
-import { FooterApp } from './FooterApp';
-import { NavbarApp } from './NavbarApp';
-
+import { ViewScrollApp } from '../../components/ViewScrollApp';
+import { BarMessageApp } from '../../components/BarMessageApp';
+import { ReviewApp } from '../../components/ReviewApp';
+import { FooterApp } from '../../components/FooterApp';
+import { NavbarApp } from '../../components/NavbarApp';
 export const HomeApp = () => {
     const categories = [
         {
-            img: '',
+            img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Buds_FE_Graphite_Case_Dynamic_Open_Buds_Out_RGB-scaled.jpg?v=1713347852&width=1100',
             name: 'Audio'
         },
         {
-            img: '',
+            img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Pixel_8__Obsidian_2.original.jpg?v=1728460949&width=1100',
             name: 'Phones'
         },
         {
-            img: '',
+            img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/XPS16graphite1.png?v=1727368280&width=1100',
             name: 'Laptops'
         },
         {
-            img: '',
+            img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Nest_Wifi_ProductSand_Q322.original.jpg?v=1713347046&width=1100',
             name: 'Smart Home'
         },
         {
-            img: '',
+            img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Fitbit_Charge_5_tracker_Render_3QTR_Core_Lunar_.original.jpg?v=1707084539&width=1100',
             name: 'Smart Watches'
         },
         {
-            img: '',
+            img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/u3425we-cfp-00030lf090-gy.png?v=1727377667&width=550',
             name: 'Monitors'
         },
     ]
+    const [currentMain, setCurrentMain] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentMain(prev => (prev + 1) % 3);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
     return (
         <div className='inter' style={{ background: '#F8F8F8' }}>
-
             <NavbarApp />
             <div className='container'>
-                <div className='main'>
+                <div className={`main main-1 ${currentMain == 0 ? 'main-active' : ''}`}>
+                    <div>
+                        <p>Now in Obsidian</p>
+                        <h1>Time for an upgrade?</h1>
+                        <p>From $899</p>
+                        <button>
+                            BUY <i className="ms-2 fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div className={`main main-2 ${currentMain == 1 ? 'main-active' : ''}`}>
                     <div>
                         <h1>Sharp shots  very time.</h1>
                         <p>All new Prime Solar S24 Plus</p>
                         <button>
-                            PRE - ORDER <i class="ms-2 fa-solid fa-arrow-right"></i>
+                            PRE - ORDER <i className="ms-2 fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
+                <div className={`main main-3 ${currentMain == 2 ? 'main-active' : ''}`}>
+                    <div>
+                        <p>Audio deals</p>
+                        <h1>Beautiful beats</h1>
+                        <button>
+                            PRE - ORDER<i className="ms-2 fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
                 <br />
                 <br />
                 <h1 className='fw-bold'>Los más vendido</h1>
@@ -59,11 +84,11 @@ export const HomeApp = () => {
                 <br />
                 <div style={{ display: 'flex', gap: '20px' }}>
                     {
-                        categories.map(x => (
-                            <div style={{ width: '100%' }}>
-                                <div style={{ background: 'gray', height: '200px', borderRadius: '15px' }}>
+                        categories.map((x, index) => (
+                            <div key={index} style={{ width: '100%', background: 'white', padding: '20px 0', borderRadius: '10px' }}>
+                                <img src={x.img} style={{ objectFit: 'contain', height: '160px', width: '100%', borderRadius: '15px' }}>
 
-                                </div>
+                                </img>
                                 <h5 className='text-center mt-4'>{x.name}</h5>
                             </div>
                         ))

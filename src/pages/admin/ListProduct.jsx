@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CONFIG } from '../../config'
+import { showInfoToast } from '../../utils/showInfoTast'
 
 export const ListProduct = () => {
     const [products, setProducts] = useState([
@@ -52,6 +55,19 @@ export const ListProduct = () => {
             vendor: 'Mi tienda'
         },
     ])
+    const getProducts = () => {
+        axios.post(`${CONFIG.uri}/products/retrieve`)
+            .then(res => {
+                setProducts(res.data);
+            })
+            .catch(error => {
+                console.log(error);
+                showInfoToast('Error on server');
+            })
+    }
+    useEffect(() => {
+        getProducts();
+    }, [])
     const navigate = useNavigate();
     return (
         <div style={{ padding: '10px 20px' }}>
@@ -63,12 +79,12 @@ export const ListProduct = () => {
                 <table className='text-center table table-product'>
                     <thead>
                         <tr>
-                            <th>Producto</th>
+                            <th>Nombre</th>
                             <th>Estado</th>
-                            <th>Inventario</th>
-                            <th>Canal de ventas</th>
-                            <th>Markets</th>
+                            <th>Stock</th>
+                            <th>Marca</th>
                             <th>Categoría</th>
+                            <th>Precio</th>
                             <th>Tipo</th>
                             <th>Proveedor</th>
                         </tr>
@@ -82,10 +98,9 @@ export const ListProduct = () => {
                                         <span className='status-active'>{x.status}</span>
                                     </td>
                                     <td>{x.stock}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{x.brand}</td>
                                     <td>{x.category}</td>
-                                    <td>{x.type}</td>
+                                    <td>{x.price}</td>
                                     <td>{x.vendor}</td>
                                 </tr>
                             ))

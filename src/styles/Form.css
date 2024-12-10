@@ -6,20 +6,39 @@
     right: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
-    overflow-y: auto;
-    padding-top: 120px;
-    padding-bottom: 20px;
+    backdrop-filter: blur(1px);
 }
 
 .form-content {
     background-color: white;
-    width: 500px;
+    width: 520px;
     padding: 20px;
     text-align: center;
     border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+}
+
+.form-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.form-content::-webkit-scrollbar-thumb {
+    background: #d1d1d1;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+}
+
+.form-content::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
 }
 
 .item-content {
@@ -93,4 +112,66 @@
 
 .btn-finish:hover {
     filter: brightness(1.2);
+}
+
+.bills {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.bills>div {
+    width: 230px;
+    height: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    filter: brightness(0.5);
+}
+
+.bills>div.active {
+    filter: brightness(1);
+}
+
+.bills>div:hover {
+    filter: brightness(1);
+}
+
+
+.bill-2 {
+    background-color: #830F95;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bill-2 img {
+    width: 60px;
+}
+
+.bill-3 {
+    background-color: #393939;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+    color: white;
+}
+
+.bill-3 .amount {
+    text-decoration: underline;
+    font-size: 0.85rem;
+}
+
+.input-cupon {
+    width: 100%;
+    padding: 10px 10px;
+    outline: none;
+    border: 1px solid rgb(156, 156, 156);
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.input-cupon:focus {
+    border: 1px solid rgb(66, 66, 66);
 }

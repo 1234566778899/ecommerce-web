@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { MainContext } from '../contexts/MainContextApp';
+import { PopCartApp } from './PopCartApp';
 
 export const NavbarApp = () => {
     const [currentMessage, setCurrentMessage] = useState(0);
     const [fade, setFade] = useState(true);
+    const { cart, setVisibleCart } = useContext(MainContext);
     const navigate = useNavigate();
     const messages = ['Envios a todo Lima Metropolitana', 'Envio gratis al instante! Paga al recibir']
     useEffect(() => {
@@ -24,7 +27,7 @@ export const NavbarApp = () => {
                     {messages[currentMessage]}
                 </div>
             </div>
-            <div style={{ background: 'white' }}>
+            <div style={{ background: 'white', border: '1px solid #EBEBEB' }}>
                 <div className='navbar container'>
                     <span className='logo' style={{ cursor: 'pointer' }} onClick={() => navigate('/home')}>IGNITE</span>
                     <div className='search-bar'>
@@ -47,12 +50,25 @@ export const NavbarApp = () => {
                             <i className="fa-regular fa-comments"></i>
                         </button>
 
-                        <button className='icon-button'>
+                        <button
+                            onClick={() => setVisibleCart(true)}
+                            className='icon-button'>
                             <i className="fa-solid fa-cart-shopping"></i>
+                            {cart.length > 0 && (<div className='badge-cart'><span>{cart.length}</span></div>)}
                         </button>
                     </div>
                 </div>
             </div>
+            <div className='menu-items'>
+                <span onClick={() => navigate('/home')}>Home</span>
+                <span onClick={() => navigate('/products')}>Shop</span>
+                <span onClick={() => navigate('/home')}>Phones</span>
+                <span onClick={() => navigate('/home')}>Brands</span>
+                <span onClick={() => navigate('/home')}>About us</span>
+                <span onClick={() => navigate('/home')}>FAQs</span>
+                <span onClick={() => navigate('/home')}>Contact</span>
+            </div>
+
         </>
     )
 }
