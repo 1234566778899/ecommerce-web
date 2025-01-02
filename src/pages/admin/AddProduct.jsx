@@ -32,11 +32,12 @@ export const AddProduct = () => {
         formData.append('description', description);
         formData.append('specs', JSON.stringify(specs));
         formData.append('variants', JSON.stringify(variants));
-        if (data.files) {
-            Array.from(data.files).forEach((file) => {
-                formData.append('files', file);
-            });
-        }
+        Array.from(data.files).forEach((file) => {
+            formData.append('files', file);
+        });
+        Array.from(data.imgs).forEach((file) => {
+            formData.append('imgs', file);
+        });
         axios.post(`${CONFIG.uri}/products`, formData)
             .then(res => {
                 showInfoToast('Se agregó correctamente');
@@ -102,6 +103,20 @@ export const AddProduct = () => {
                             <div className='text-center'>
                                 <input
                                     {...register('files')}
+                                    type="file"
+                                    multiple
+                                    accept="image/*,video/*"
+                                />
+                                <p className='mt-2'>Acepta imágenes, videos o modelos 3D</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='form-main'>
+                        <label>Imagenes de descripción</label>
+                        <div className='card-multimedia'>
+                            <div className='text-center'>
+                                <input
+                                    {...register('imgs')}
                                     type="file"
                                     multiple
                                     accept="image/*,video/*"

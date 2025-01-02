@@ -115,6 +115,25 @@
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
+
+.title-product {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #777777;
+    font-size: 0.95rem;
+}
+
+.price-before {
+    color: #777777;
+    font-size: 0.85rem;
+    text-decoration: line-through;
+    font-weight: 500;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
 @keyframes load {
     0% {
         transform: rotate(0deg);
@@ -122,5 +141,15 @@
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width:720px) {
+    .title-product {
+        max-width: 150px;
+    }
+
+    .content-list {
+        padding: 10px;
     }
 }

@@ -1,0 +1,220 @@
+.contact-c-1 {
+    display: flex;
+    gap: 30px;
+}
+
+.contact-c-1>div {
+    text-align: center;
+    background-color: #F8F8F8;
+    padding: 30px;
+
+}
+
+.contact-c-1 i {
+    color: #9822CC;
+    font-size: 3rem;
+}
+
+.contact-c-1 button {
+    background-color: #9822CC;
+    border: none;
+    padding: 12px 40px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.contact-c-1 h3 {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.contact-c-1 p {
+    font-size: 1.1rem;
+}
+
+.contact-c-2 {
+    display: flex;
+}
+
+.contact-c-2>div {
+    width: 100%;
+}
+
+.contact-c-2>div:first-child {
+    border-top-left-radius: 10px;
+    height: 650px;
+    background-image: url('https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/headphones-over-ear.jpg?v=1709797997&width=750');
+    background-size: cover;
+}
+
+.contact-c-2>div:last-child {
+    padding: 60px;
+}
+
+.contact-c-2 input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1.5px solid #AFAFAF;
+    border-radius: 3px;
+}
+
+.btn-send {
+    margin-top: 10px;
+    background-color: #3C4043;
+    padding: 12px 25px;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+.btn-faq {
+    margin-top: 10px;
+    border: 2px solid white;
+    font-weight: bold;
+    background: none;
+    padding: 12px 35px;
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+.contact-c-4 {
+    display: flex;
+    gap: 30px;
+}
+
+.contact-c-4>div {
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    justify-content: center;
+    transition: filter 0.3s ease;
+}
+
+.contact-c-4>div:hover {
+    filter: brightness(1.15);
+}
+
+.contact-c-4 .c-1 {
+    background-image: url('https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/shridhar-gupta-dZxQn4VEv2M-unsplash.jpg?v=1713544658&width=1066');
+}
+
+.contact-c-4 .c-2 {
+    background-image: url('https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/pexels-ddoneo-10124268.jpg?v=1714549041&width=1066');
+}
+
+.contact-c-4 .c-3 {
+    background-image: url('https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/omid-armin-ZHY39f8qlRo-unsplash_b5e0be17-708c-4420-bbf1-d4ee9627958e.jpg?v=1723550282&width=1066');
+}
+
+.contact-c-4>div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.contact-c-4 .contenido {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.contact-c-4 h1 {
+    font-weight: bold;
+}
+
+.contact-c-4 i {
+    font-size: 1.5rem;
+}
+
+.contact-c-3 {
+    display: flex;
+    gap: 30px;
+}
+
+.contact-c-3>div {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.contact-c-3 img {
+    border-radius: 10px;
+}
+
+.contact-c-3>div:first-child {
+    padding: 40px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.btn-get {
+    padding: 15px 30px;
+    background: none;
+    border: 1px solid gray;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    transition: box-shadow 0.2s ease;
+}
+
+.btn-get:hover {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.contact-d {
+    width: 50%;
+}
+
+@media screen and (max-width:768px) {
+    .contact-d {
+        width: 100%;
+    }
+
+    .contact-c-1 {
+        flex-direction: column;
+    }
+
+    .contact-c-2 {
+        flex-direction: column;
+    }
+
+    .contact-c-2>div:first-child {
+        height: 500px;
+    }
+
+    .contact-c-2>div:last-child {
+        padding: 20px;
+    }
+
+    .contact-c-3 {
+        flex-direction: column;
+    }
+
+    .contact-c-3>div:first-child {
+        padding: 20px;
+    }
+
+    .contact-c-4 {
+        flex-direction: column;
+    }
+}

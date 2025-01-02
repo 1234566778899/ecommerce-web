@@ -82,12 +82,11 @@ export const HomeApp = () => {
                 <h1 className='fw-bold'><span className='text-wai'>Nuestra gama.</span> <span> Descubra todo</span> </h1>
                 <h1 className='fw-bold'> lo que tenemos para ofrecerle.</h1>
                 <br />
-                <div style={{ display: 'flex', gap: '20px' }}>
+                <div className='category-content'>
                     {
                         categories.map((x, index) => (
-                            <div key={index} style={{ width: '100%', background: 'white', padding: '20px 0', borderRadius: '10px' }}>
-                                <img src={x.img} style={{ objectFit: 'contain', height: '160px', width: '100%', borderRadius: '15px' }}>
-
+                            <div key={index} className='category-item'>
+                                <img src={x.img}>
                                 </img>
                                 <h5 className='text-center mt-4'>{x.name}</h5>
                             </div>
@@ -97,13 +96,13 @@ export const HomeApp = () => {
                 <br />
                 <br />
                 <br />
-                <div style={{ display: 'grid', gap: '40px', gridTemplateColumns: '1fr 1fr' }}>
+                <div className='content-old'>
                     <div>
                         <video playsInline autoPlay muted style={{ borderRadius: '15px', height: '500px', width: '100%', objectFit: 'cover' }}>
                             <source src='https://benchmark-electronics-demo.myshopify.com/cdn/shop/videos/c/vp/136b5a214a7446b791cc9159ef267365/136b5a214a7446b791cc9159ef267365.HD-1080p-7.2Mbps-36056229.mp4?v=0%27%20type=%27video/mp4' />
                         </video>
                     </div>
-                    <div style={{ paddingLeft: '100px', display: 'flex', alignItems: 'center' }}>
+                    <div className='old-text'>
                         <div style={{ width: '400px' }}>
                             <h1 className='fw-bold'>Can your old phone do this?</h1>
                             <p className='mt-4'>The brand new Solar S24 Ultra - with dynamic background blur.</p>
@@ -138,7 +137,7 @@ export const HomeApp = () => {
                 <br />
                 <h1 className='text-center fw-bold'>Who, us?</h1>
                 <br />
-                <div className='mt-4 pb-5' style={{ display: 'flex' }}>
+                <div className='mt-4 pb-5 who-us' >
                     <div className='w-item'>
                         <span style={{ fontSize: '0.9rem' }}>OVER</span>
                         <span className='text-a' style={{ fontSize: '5rem' }}>142K</span>
@@ -160,7 +159,7 @@ export const HomeApp = () => {
             <br />
             <br />
             <h1 className='text-center fw-bold'>Encuentra tu <span className='text-wai'>vibra</span></h1>
-            <div className='text-center'>
+            <div className='content-vibra'>
                 <img src="https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/galaxy-s24ultra-titaniumyellow-device-spen-front_HI-scaled.jpg?v=1727348240&width=1100" alt="img" />
             </div>
             <FooterApp />

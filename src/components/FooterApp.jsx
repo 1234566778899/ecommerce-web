@@ -4,29 +4,29 @@ export const FooterApp = () => {
     return (
         <div>
             <div style={{ background: '#121212' }}>
-                <div className="container" style={{ display: 'flex', color: 'white', padding: '20px 0px', gap: '20px' }}>
-                    <div className='f-item ps-5'>
+                <div className="container content-trust">
+                    <div className='f-item'>
                         <i style={{ fontSize: '1.7rem' }} className="fa-solid fa-shield-heart"></i>
                         <div>
                             <span style={{ fontWeight: 'bold' }}>WELL TRUSTED</span>
                             <span style={{ fontSize: '0.9rem' }}>Over 100k customers</span>
                         </div>
                     </div>
-                    <div className='f-item ps-5'>
+                    <div className='f-item'>
                         <i style={{ fontSize: '1.7rem' }} className="fa-solid fa-truck"></i>
                         <div>
                             <span style={{ fontWeight: 'bold' }}>SUPER FAST</span>
                             <span style={{ fontSize: '0.9rem' }}>With Express delivery</span>
                         </div>
                     </div>
-                    <div className='f-item ps-5'>
+                    <div className='f-item'>
                         <i style={{ fontSize: '1.7rem' }} className="fa-regular fa-comments"></i>
                         <div>
                             <span style={{ fontWeight: 'bold' }}>EXPERT HELP</span>
                             <span style={{ fontSize: '0.9rem' }}>Seven days a week</span>
                         </div>
                     </div>
-                    <div className='f-item ps-5'>
+                    <div className='f-item'>
                         <i style={{ fontSize: '1.7rem' }} className="fa-solid fa-tags"></i>
                         <div>
                             <span style={{ fontWeight: 'bold' }}>BEST PRICES</span>
@@ -36,7 +36,7 @@ export const FooterApp = () => {
                 </div>
             </div>
             <div style={{ padding: '50px 0px', background: '#1A1D1D', color: 'white' }}>
-                <div className="container" style={{ display: 'grid', gridTemplateColumns: '40% 20% 20% 20%', gap: '20px' }}>
+                <div className="container footer-content" >
                     <div>
                         <h3 style={{ fontWeight: 'bold' }}>IGNITE</h3>
                         <p className='pe-5'>Our mission at Ignite is to consistently provide our customers with the latest technology and gadgets at unbeatably low prices, ensuring a simple and straightforward shopping experience.</p>

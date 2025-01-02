@@ -13,6 +13,8 @@ import { ListApp } from './pages/client/ListApp';
 import { MainContextApp } from './contexts/MainContextApp';
 import { MapViewApp } from './pages/admin/MapViewApp';
 import { ContactApp } from './pages/client/ContactApp';
+import { AboutApp } from './pages/client/AboutApp';
+import { FaqApp } from './pages/client/FaqApp';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path='home' element={<HomeApp />} />
           <Route path='products' element={<ListApp />} />
           <Route path='contact' element={<ContactApp />} />
+          <Route path='faqs' element={<FaqApp />} />
+          <Route path='about' element={<AboutApp />} />
           <Route path='details/:id' element={<DetailsApp />} />
         </Route>
         <Route path='/admin' element={<Admin />}>

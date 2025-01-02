@@ -313,3 +313,26 @@
     height: 500px;
     object-fit: contain;
 }
+
+.content-details {
+    display: grid;
+    grid-template-columns: 58% 37%;
+    gap: 50px;
+}
+
+.details-info {
+    display: flex;
+    gap: 20px;
+}
+
+@media screen and (max-width:768px) {
+    .content-details {
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+    }
+
+    .details-info {
+        flex-direction: column;
+    }
+}

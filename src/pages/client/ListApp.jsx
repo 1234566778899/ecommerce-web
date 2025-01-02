@@ -5,12 +5,14 @@ import axios from 'axios'
 import { CONFIG } from '../../config'
 import { showInfoToast } from '../../utils/showInfoTast'
 import { useNavigate } from 'react-router-dom'
+import { TabFilterApp } from '../../components/TabFilterApp'
 
 export const ListApp = () => {
     const [brands, setBrands] = useState(['Apex', 'BENCHMARK', 'EDGE', 'PRIME', 'Videe'])
     const [colors, setColors] = useState(['#FFE500', '#000000', '#D49A06', '#05AA3D', '#808080', '#A54DCF', '#E9D7AA', '#FF8A00'])
     const [products, setProducts] = useState(null);
     const navigate = useNavigate();
+    const [filterVisible, setFilterVisible] = useState(false);
     const getProducts = () => {
         axios.post(`${CONFIG.uri}/products/retrieve`)
             .then(res => {
@@ -22,6 +24,16 @@ export const ListApp = () => {
             })
     }
     useEffect(() => {
+        if (filterVisible) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [filterVisible]);
+    useEffect(() => {
         getProducts();
     }, [])
     return (
@@ -29,12 +41,23 @@ export const ListApp = () => {
             <div className='inter' style={{ background: '#F8F8F8' }}>
                 <NavbarApp />
             </div>
+            <TabFilterApp visible={filterVisible} setVisible={setFilterVisible} />
             <div style={{ background: '#F8F9FA' }}>
                 <br />
                 <div className="container">
-                    <h1>ALL</h1>
-                    <div className='mt-5' style={{ display: 'grid', gridTemplateColumns: '1fr 3fr', gap: '30px' }}>
-                        <div>
+                    <span style={{ display: 'flex' }}>
+                        <h1>ALL</h1>
+                        <span className='fw-bold'>(35)</span>
+                    </span>
+                    <div className='tab-filter'>
+                        <button onClick={() => setFilterVisible(true)}>
+                            <i className="fa-solid fa-sliders"></i>
+                            <span className='ms-3'>Filtrar</span>
+                        </button>
+                        <span>35 Productos</span>
+                    </div>
+                    <div className='content-products'>
+                        <div className='menu-filter'>
                             <div className='card-filter'>
                                 <h6 className='fw-bold'>BRAND</h6>
                                 <div className='items-filter items-brand'>
@@ -60,18 +83,18 @@ export const ListApp = () => {
                         </div>
                         <div>
                             <div className='top-list'>
-                                <span>35 Productos</span>
+                                <span className='ms-2 fw-bold'>35 Productos</span>
                                 <select>
-                                    <option value="">Best Selling</option>
-                                    <option value="">Alphabetically, A-Z</option>
-                                    <option value="">Alphabetically, Z-A</option>
-                                    <option value="">Price, low to high</option>
-                                    <option value="">Price, high to low</option>
-                                    <option value="">Price, old to new</option>
-                                    <option value="">Price, new to old</option>
+                                    <option value="1">Best Selling</option>
+                                    <option value="2">Alphabetically, A-Z</option>
+                                    <option value="3">Alphabetically, Z-A</option>
+                                    <option value="4">Price, low to high</option>
+                                    <option value="5">Price, high to low</option>
+                                    <option value="6">Price, old to new</option>
+                                    <option value="7">Price, new to old</option>
                                 </select>
                             </div>
-                            <div className='mt-4' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '10px' }}>
+                            <div className='mt-4 list-products'>
                                 {
                                     products && products.map((item, index) => (
                                         <div key={index} className='item-product' onClick={() => navigate(`/details/${item._id}`)}>
@@ -81,8 +104,7 @@ export const ListApp = () => {
                                             }
                                             <div className='content-list'>
                                                 <div>
-                                                    <span style={{ fontSize: '0.8rem' }}>EDGE</span>
-                                                    <h6 className='fw-bold mt-2'>{item.name}</h6>
+                                                    <div className="title-product">{item.name}</div>
                                                     {
                                                         item.colors && (
                                                             <div className='d-flex gap-1 mt-3'>
@@ -95,9 +117,19 @@ export const ListApp = () => {
                                                             </div>
                                                         )
                                                     }
-                                                    <div className='mt-3'>Desde S/.{item.price.toFixed(2)}</div>
+                                                    <div className='mt-1' style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
+                                                        <span style={{ fontSize: '0.9rem' }}>S/. </span>{item.price.toFixed(2)}
+                                                        <span className='price-before'>250.49</span>
+                                                    </div>
+                                                    <div className='mt-2' style={{ fontSize: '0.85rem' }}>
+                                                        <i className="fa-solid fa-star"></i>
+                                                        <i className="fa-solid fa-star"></i>
+                                                        <i className="fa-solid fa-star"></i>
+                                                        <i className="fa-solid fa-star"></i>
+                                                        <i className="fa-regular fa-star"></i>
+                                                        <span style={{ color: '#777777' }}> (151)</span>
+                                                    </div>
                                                 </div>
-                                                <button>VER PRODUCTO</button>
                                             </div>
 
                                         </div>

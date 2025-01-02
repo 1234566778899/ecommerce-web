@@ -21,7 +21,7 @@ export const PopCartApp = ({ close }) => {
             <div onClick={(e) => e.stopPropagation()}>
                 <div
                     style={{ borderBottom: '1px solid #DCDCDC', display: 'flex', justifyContent: 'space-between', padding: '15px' }}>
-                    <span style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>Your cart</span>
+                    <span style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>Tu carrito</span>
                     <button
                         onClick={() => close()}
                         style={{ background: 'none', border: 'none' }}>
@@ -31,8 +31,8 @@ export const PopCartApp = ({ close }) => {
                 {
                     cart.length == 0 && (
                         <div className='card-empty mt-5'>
-                            <h3 className='fw-bold'>Your cat is empty :(</h3>
-                            <button onClick={() => close()}>CONTINUE SHOPPING</button>
+                            <h3 className='fw-bold'>Tu carrito esta vacio:(</h3>
+                            <button onClick={() => close()}>CONTINUAR COMPRANDO</button>
                         </div>
                     )
                 }
@@ -62,12 +62,16 @@ export const PopCartApp = ({ close }) => {
                                                 alt="img" />
                                         </div>
                                         <div>
-                                            <h6 className='fw-bold'>{item.name}</h6>
-                                            <div style={{ display: 'flex', flexDirection: 'column', fontSize: '0.85rem', color: '#5D5D5D' }}>
-                                                <span>Color: Marble Grey</span>
-                                                <span>Storage size: 1TB</span>
-                                                <span>Memory: 16GB</span>
-                                            </div>
+                                            <div style={{
+                                                display: '-webkit-box',
+                                                WebkitBoxOrient: 'vertical',
+                                                WebkitLineClamp: 2,
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
+                                                width: '230px'
+                                            }}
+                                                className='fw-bold'>{item.name}</div>
+
                                             <div style={{ display: 'flex', alignItems: 'center' }}>
                                                 <div className='cant mt-2' style={{ width: '100px', border: '1px solid #C9CACB' }}>
                                                     <input

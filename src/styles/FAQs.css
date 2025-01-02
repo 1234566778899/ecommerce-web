@@ -1,0 +1,92 @@
+.faq-main {
+    position: relative;
+    background-image: url('https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/dell-Gi3iUJ1FwxI-unsplash.jpg?v=1710019208&width=1100');
+    height: calc(100% - 173px);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+    color: white;
+}
+
+.faq-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.faq-main>* {
+    position: relative;
+    z-index: 2;
+}
+
+.faq-main h1 {
+
+    font-size: 4.3rem;
+    font-weight: bold;
+}
+
+.faq-main p {
+    font-size: 1.5rem;
+}
+
+.input-search {
+    border: 1px solid #A7A8A9;
+    border-radius: 10px;
+    padding: 10px;
+    width: 280px;
+    align-items: center;
+    display: flex;
+}
+
+.input-search:hover {
+    border: 1px solid rgb(75, 75, 75);
+}
+
+.input-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0px 10px;
+}
+
+
+.faq-q {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 60px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgb(221, 221, 221);
+    padding: 10px 0;
+}
+
+.faq-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.faq-r {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.faq-open {
+    max-height: 300px;
+}
+
+.content-search {
+    position: sticky;
+    top: 20px;
+}

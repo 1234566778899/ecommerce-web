@@ -1,0 +1,166 @@
+.about-main {
+    height: calc(100% - 173px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-image: url('https://benchmark-electronics-demo.myshopify.com/cdn/shop/articles/tomasz-gawlowski-YDZPdqv3FcA-unsplash.jpg?v=1709758278&width=1500');
+    background-size: cover;
+    position: relative;
+}
+
+.about-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.about-main>* {
+    z-index: 2;
+    position: relative;
+}
+
+.about-main>div {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.about-main span {
+    font-size: 3rem;
+}
+
+.about-c-1 {
+    display: flex;
+    margin-top: 80px;
+}
+
+.about-c-2 {
+    margin-top: 80px;
+    display: flex;
+}
+
+.about-c-1>div {
+    width: 100%;
+}
+
+.about-c-2>div {
+    width: 100%;
+}
+
+.about-c-1>div:first-child {
+    height: 500px;
+}
+
+.about-c-2>div:last-child {
+    height: 500px;
+}
+
+.about-c-1 p {
+    font-size: 1.1rem;
+}
+
+.about-c-2 p {
+    font-size: 1.1rem;
+}
+
+.about-c-1>div:last-child {
+    padding: 50px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transform: translate(-50px, 30px);
+    z-index: 10;
+    order: 1;
+    background-color: white;
+    height: 440px;
+}
+
+.about-c-2>div:first-child {
+    padding: 50px;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: white;
+    height: 440px;
+    transform: translate(50px, 30px);
+    z-index: 10;
+}
+
+.about-c-1 .img-1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about-c-2 .img-1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.img-about {
+    display: flex;
+    gap: 17px;
+    margin-top: 25px;
+}
+
+.img-about>img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cont-cohete {
+    background-image: linear-gradient(to bottom, #D33589, #A313B9);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    margin-top: 25px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:768px) {
+    .about-main {
+        height: 100vh;
+    }
+
+    .about-c-1 {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .about-c-2 {
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+    .about-c-1>div:last-child {
+        margin-top: 20px;
+        transform: none;
+        border-radius: 0px;
+        height: auto;
+        padding: 20px;
+    }
+
+    .about-c-2>div:first-child {
+        transform: none;
+        padding: 20px;
+    }
+
+    .about-c-2>div:last-child {
+        transform: none;
+        margin-top: 20px;
+        border-radius: 0px;
+    }
+}

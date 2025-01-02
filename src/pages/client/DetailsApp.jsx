@@ -125,7 +125,7 @@ export const DetailsApp = () => {
                         <br />
                         <h1 className='fw-bold'>{product.name}</h1>
                         <p className='mt-3' style={{ fontSize: '1.1rem' }}>Desde S/. {product.price.toFixed(2)}</p>
-                        <div className='mt-4' style={{ display: 'grid', gridTemplateColumns: '58% 37%', gap: '50px' }}>
+                        <div className='mt-4 content-details'>
                             <div>
                                 <div className="content-d">
                                     <img src={product.imgs[imgCurrent]} alt="img" className='img-details' />
@@ -147,91 +147,101 @@ export const DetailsApp = () => {
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                            <div>
-                                <div className="content-d">
+                                <div className='content-d mt-4 p-4'>
+                                    <h4>Descripción</h4>
+                                    <hr />
                                     {
-                                        product.variants && (
-                                            <div style={{ padding: '40px' }}>
-                                                <div>
-                                                    <span style={{ fontWeight: 'bold' }}>Elige el color: </span>
-                                                    <span>{colors[product.variants.Color[variantCurrent['Color']]]}</span>
-                                                </div>
-                                                <div className='mt-3' style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
-                                                    {
-                                                        product.variants && product.variants.Color && product.variants.Color.map((x, index) => (
-                                                            <div key={index}
-                                                                onClick={() => setVariantCurrent({ ...variantCurrent, 'Color': x })}
-                                                                className={`color-item ${x == variantCurrent['Color'] ? 'img-current' : ''}`}>
-                                                                <div style={{ boxShadow: 'inset 0px 4px 8px rgba(0, 0, 0, 0.2)', background: x, width: '25px', height: '25px', borderRadius: '50%' }}> </div>
-                                                            </div>
-                                                        ))
-                                                    }
-                                                </div>
-                                            </div>
-                                        )
+                                        product.photos.map((photo, index) => (
+                                            <img key={index} src={photo} alt="img" className='w-100' />
+                                        ))
                                     }
-                                    <div style={{ border: '1px solid #F8F8F8' }}></div>
-                                    <div style={{ padding: '30px 40px' }}>
-                                        <div>
-                                            <span style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>S/. {product.price.toFixed(2)}</span> <br />
-                                            <span style={{ fontSize: '0.9rem', color: 'gray' }}>Impuestos incluidos</span>
-                                        </div>
-                                        <div className='cart-field'>
-                                            <div className='cant'>
-                                                <input
-                                                    value={quantity}
-                                                    onChange={(e) => setQuantity(e.target.value)}
-                                                    type="text"
-                                                    className='w-100 text-center'
-                                                    min="1" />
-                                                <div className='btns-inc'>
-                                                    <button onClick={() => setQuantity(+quantity + 1)}
-                                                        className='btn-a'><i className="fa-solid fa-chevron-up"></i></button>
-                                                    <button onClick={() => setQuantity(+quantity - 1 == 0 ? 1 : +quantity - 1)}
-                                                        className='btn-b'><i className="fa-solid fa-chevron-down"></i></button>
+                                </div>
+                            </div>
+                            <div >
+                                <div style={{ position: 'sticky', top: '2px' }}>
+                                    <div className="content-d">
+                                        {
+                                            product.variants && (
+                                                <div style={{ padding: '20px' }}>
+                                                    <div>
+                                                        <span style={{ fontWeight: 'bold' }}>Elige el color: </span>
+                                                        <span>{colors[product.variants.Color[variantCurrent['Color']]]}</span>
+                                                    </div>
+                                                    <div className='mt-3' style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
+                                                        {
+                                                            product.variants && product.variants.Color && product.variants.Color.map((x, index) => (
+                                                                <div key={index}
+                                                                    onClick={() => setVariantCurrent({ ...variantCurrent, 'Color': x })}
+                                                                    className={`color-item ${x == variantCurrent['Color'] ? 'img-current' : ''}`}>
+                                                                    <div style={{ boxShadow: 'inset 0px 4px 8px rgba(0, 0, 0, 0.2)', background: x, width: '25px', height: '25px', borderRadius: '50%' }}> </div>
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                        <div style={{ border: '1px solid #F8F8F8' }}></div>
+                                        <div style={{ padding: '30px 20px' }}>
+                                            <div>
+                                                <span style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>S/. {product.price.toFixed(2)}</span> <br />
+                                                <span style={{ fontSize: '0.9rem', color: 'gray' }}>Impuestos incluidos</span>
+                                            </div>
+                                            <div className='cart-field'>
+                                                <div className='cant'>
+                                                    <input
+                                                        value={quantity}
+                                                        onChange={(e) => setQuantity(e.target.value)}
+                                                        type="text"
+                                                        className='w-100 text-center'
+                                                        min="1" />
+                                                    <div className='btns-inc'>
+                                                        <button onClick={() => setQuantity(+quantity + 1)}
+                                                            className='btn-a'><i className="fa-solid fa-chevron-up"></i></button>
+                                                        <button onClick={() => setQuantity(+quantity - 1 == 0 ? 1 : +quantity - 1)}
+                                                            className='btn-b'><i className="fa-solid fa-chevron-down"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div className='w-100'>
+                                                    <button
+                                                        onClick={() => addCart()}
+                                                        className='btn-add-cart'>
+                                                        <i className="fa-solid fa-cart-shopping me-2"></i>Agregar al carrito
+                                                    </button>
                                                 </div>
                                             </div>
-                                            <div className='w-100'>
-                                                <button
-                                                    onClick={() => addCart()}
-                                                    className='btn-add-cart'>
-                                                    <i className="fa-solid fa-cart-shopping me-2"></i>Agregar a la canasta
-                                                </button>
+                                            <button onClick={() => buyNow()} className='btn-buy'>Comprar ahora - Paga al recibir</button>
+                                            <br />
+                                            <br />
+                                            <hr style={{ color: '#ECECEC' }} />
+                                            <div className='d-flex mt-4'>
+                                                <div>
+                                                    <i className="fa-solid fa-truck" style={{ fontSize: '1.2rem' }}></i>
+                                                </div>
+                                                <div className='ms-3'>
+                                                    <h6 className='fw-bold'>Pickup available at Ignite HQ</h6>
+                                                    <p style={{ fontSize: '0.9rem' }}>Usually ready in 24 hours</p>
+                                                    <a style={{ color: 'gray', fontSize: '0.9rem' }} href="#">View store information</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <button onClick={() => buyNow()} className='btn-buy'>Comprar ahora - Paga al recibir</button>
-                                        <br />
-                                        <br />
-                                        <hr style={{ color: '#ECECEC' }} />
-                                        <div className='d-flex mt-4'>
-                                            <div>
-                                                <i className="fa-solid fa-truck" style={{ fontSize: '1.2rem' }}></i>
+                                            <hr style={{ color: '#ECECEC' }} />
+                                            <p style={{ fontSize: '1.1rem' }}>¿Quieres entrega al día siguiente? ¡Apresúrate!</p>
+                                            <div className='hour' style={{ fontSize: '1.1rem' }}>
+                                                <span>{timeLeft.hours}h</span>:
+                                                <span>{timeLeft.minutes}m</span>:
+                                                <span>{timeLeft.seconds}s</span>
                                             </div>
-                                            <div className='ms-3'>
-                                                <h6 className='fw-bold'>Pickup available at Ignite HQ</h6>
-                                                <p style={{ fontSize: '0.9rem' }}>Usually ready in 24 hours</p>
-                                                <a style={{ color: 'gray', fontSize: '0.9rem' }} href="#">View store information</a>
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <hr style={{ color: '#ECECEC' }} />
-                                        <p style={{ fontSize: '1.1rem' }}>¿Quieres entrega al día siguiente? ¡Apresúrate!</p>
-                                        <div className='hour' style={{ fontSize: '1.1rem' }}>
-                                            <span>{timeLeft.hours}h</span>:
-                                            <span>{timeLeft.minutes}m</span>:
-                                            <span>{timeLeft.seconds}s</span>
                                         </div>
                                     </div>
-                                </div>
-                                <div className='content-d mt-4 p-4'>
-                                    <h4>Información adicional</h4>
-                                    <hr />
-                                    <div
-                                        dangerouslySetInnerHTML={{
-                                            __html: product.description
-                                        }}
-                                    ></div>
+                                    <div className='content-d mt-4 p-4'>
+                                        <h4>Información adicional</h4>
+                                        <hr />
+                                        <div
+                                            dangerouslySetInnerHTML={{
+                                                __html: product.description
+                                            }}
+                                        ></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -245,7 +255,7 @@ export const DetailsApp = () => {
                         </div>
                     </div>
                     <br />
-                    <div className="container" style={{ display: 'flex', gap: '20px' }}>
+                    <div className="container details-info">
                         <div className='w-100 bg-white p-3 text-center' style={{ borderRadius: '5px' }}>
                             <i style={{ fontSize: '1.5rem' }} className="fa-solid fa-house"></i>
                             <h5 className='mt-3 fw-bold'>Compra 100% Segura</h5>
