@@ -867,6 +867,10 @@
 }
 
 @media (max-width: 768px) {
+    .scroll-button {
+        display: none;
+    }
+
     .tab-filter {
         display: flex;
     }

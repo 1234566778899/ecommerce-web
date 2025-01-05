@@ -80,14 +80,9 @@ export const FaqApp = () => {
                     </div>
                 </div>
             </div>
-            <br />
-            <br />
-            <br />
             <div className="container">
-                <div style={{ display: 'grid', gridTemplateColumns: '40% 60%', gap: '20px' }}>
+                <div className='content-faq'>
                     <div>
-                        <br />
-                        <br />
                         <div className='content-search'>
                             <h1 className='fw-bold'>Buscar en FAQs</h1>
                             <p style={{ fontSize: '1.1rem' }}>No encuentras lo que buscas? Intenta buscar a continuación.</p>

@@ -47,7 +47,7 @@ export const ListApp = () => {
                 <div className="container">
                     <span style={{ display: 'flex' }}>
                         <h1>Todos</h1>
-                        <span className='fw-bold'>(35)</span>
+                        <span className='fw-bold'>({products && products.length})</span>
                     </span>
                     <div className='tab-filter'>
                         <button onClick={() => setFilterVisible(true)}>
@@ -83,7 +83,7 @@ export const ListApp = () => {
                         </div>
                         <div>
                             <div className='top-list'>
-                                <span className='ms-2 fw-bold'>35 Productos</span>
+                                <span className='ms-2 fw-bold'>{products && products.length} Productos</span>
                                 <select>
                                     <option value="1">Best Selling</option>
                                     <option value="2">Alphabetically, A-Z</option>
@@ -119,7 +119,7 @@ export const ListApp = () => {
                                                     }
                                                     <div className='mt-1' style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
                                                         <span style={{ fontSize: '0.9rem' }}>S/. </span>{item.price.toFixed(2)}
-                                                        <span className='price-before'>250.49</span>
+                                                        <span className='price-before'>{item.priceCompare.toFixed(2)}</span>
                                                     </div>
                                                     <div className='mt-2' style={{ fontSize: '0.85rem' }}>
                                                         <i className="fa-solid fa-star"></i>
@@ -127,7 +127,7 @@ export const ListApp = () => {
                                                         <i className="fa-solid fa-star"></i>
                                                         <i className="fa-solid fa-star"></i>
                                                         <i className="fa-regular fa-star"></i>
-                                                        <span style={{ color: '#777777' }}> (151)</span>
+                                                        <span style={{ color: '#777777' }}> ({item.reviews})</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,8 +136,17 @@ export const ListApp = () => {
                                     ))
                                 }
                             </div>
+                            {
+                                products && products.length == 0 && (
+                                    <h4 className='text-center mt-5'>Ups! No se ha encontrado ningún producto</h4>
+                                )
+                            }
                             <div className='text-center my-5'>
-                                <button className='btn-view'>SHOW MORE</button>
+                                {
+                                    products && products.length > 16 && (
+                                        <button className='btn-view'>SHOW MORE</button>
+                                    )
+                                }
                             </div>
                         </div>
                     </div>
