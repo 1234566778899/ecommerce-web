@@ -12,7 +12,7 @@ const containerStyle = {
 
 export const ValidInfoApp = ({ order, close }) => {
     const [billCurrent, setBillCurrent] = useState(0);
-    const { setIsForm } = useContext(MainContext);
+    const { setIsForm, setCart } = useContext(MainContext);
     const [position, setPosition] = useState(null);
     const [notFound, setNotFound] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -42,6 +42,7 @@ export const ValidInfoApp = ({ order, close }) => {
             .then(res => {
                 setIsForm(false);
                 showInfoToast('Pedido creado correctamente');
+                setCart([])
             })
             .catch(error => {
                 console.log(error);
@@ -80,13 +81,13 @@ export const ValidInfoApp = ({ order, close }) => {
                 <div
                     onClick={() => setBillCurrent(0)}
                     className={`bill-2 ${billCurrent === 0 ? 'active' : ''}`}>
-                    <img src="https://images.seeklogo.com/logo-png/50/3/yape-logo-png_seeklogo-504685.png?v=638686935540000000" alt="img-yape" />
+                    <img src={require('../assets/imgs/yape.png')} alt="img-yape" />
                 </div>
                 <div
                     onClick={() => setBillCurrent(1)}
                     className={`bill-3 ${billCurrent === 1 ? 'active' : ''}`}>
                     <span><i className="fa-solid fa-money-bill me-1"></i>Efectivo</span>
-                    <span className='amount'>Ingresa monto</span>
+                    {/* <span className='amount'>Ingresa monto</span> */}
                 </div>
             </div>
             <br />

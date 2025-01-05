@@ -5,61 +5,62 @@ export const ViewScrollApp = ({ configuration }) => {
     const [bests, setBests] = useState([
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Pixel_8__Obsidian_2.original.jpg?v=1728460949&width=1445',
-            title: 'Edge Pixa 9',
-            price: 100.00,
+            title: 'Google Pixel 8',
+            price: 699.00,  // Actualizado a un precio más realista
             color: ['black', 'magenta', 'green', 'pink'],
-            beforePrice: 89.00,
+            beforePrice: 799.00,  // Precio original actualizado
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/aw3225qfbackleft2.png?v=1727681359&width=1445',
-            title: 'Edge Pixa 9',
-            price: 100.00,
+            title: 'Gaming Monitor',
+            price: 499.00,  // Actualizado a un precio más realista
             color: ['black', 'magenta', 'green', 'pink'],
-            beforePrice: 89.00,
+            beforePrice: 549.00,  // Precio original actualizado
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/galaxy-s24ultra-titaniumblue-device-spen-front_HI-scaled.jpg?v=1727348203&width=1100',
-            title: 'Edge Pixa 9',
-            price: 100.00,
+            title: 'Samsung Galaxy S24',
+            price: 1199.00,  // Actualizado a un precio más realista
             color: ['black', 'magenta', 'green', 'pink'],
-            beforePrice: 89.00,
+            beforePrice: 1299.00,  // Precio original actualizado
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/galaxy_zflip4_borapurple-scaled.jpg?v=1713196932&width=1100',
-            title: 'Edge Pixa 9',
-            price: 100.00,
+            title: 'Samsung Galaxy Z Flip 4',
+            price: 999.00,  // Actualizado a un precio más realista
             color: ['black', 'magenta', 'green', 'pink'],
-            beforePrice: 89.00,
+            beforePrice: 1099.00,  // Precio original actualizado
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Pixel_8__Obsidian_2.original.jpg?v=1728460949&width=1445',
-            title: 'Edge Pixa 9',
-            price: 100.00,
+            title: 'Google Pixel 8',
+            price: 699.00,  // Actualizado a un precio más realista
             color: ['black', 'magenta', 'green', 'pink'],
-            beforePrice: 89.00,
+            beforePrice: 799.00,  // Precio original actualizado
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/aw3225qfbackleft2.png?v=1727681359&width=1445',
-            title: 'Edge Pixa 9',
-            price: 100.00,
+            title: 'Gaming Monitor',
+            price: 499.00,  // Actualizado a un precio más realista
             color: ['black', 'magenta', 'green', 'pink'],
-            beforePrice: 89.00,
+            beforePrice: 549.00,  // Precio original actualizado
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/galaxy-s24ultra-titaniumblue-device-spen-front_HI-scaled.jpg?v=1727348203&width=1100',
-            title: 'Edge Pixa 9',
-            price: 100.00,
+            title: 'Samsung Galaxy S24',
+            price: 1199.00,  // Actualizado a un precio más realista
             color: ['black', 'magenta', 'green', 'pink'],
-            beforePrice: 89.00,
+            beforePrice: 1299.00,  // Precio original actualizado
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/galaxy_zflip4_borapurple-scaled.jpg?v=1713196932&width=1100',
-            title: 'Edge Pixa 9',
-            price: 100.00,
+            title: 'Samsung Galaxy Z Flip 4',
+            price: 999.00,  // Actualizado a un precio más realista
             color: ['black', 'magenta', 'green', 'pink'],
-            beforePrice: 89.00,
+            beforePrice: 1099.00,  // Precio original actualizado
         }
     ])
+
     const scrollContainerRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
@@ -111,7 +112,9 @@ export const ViewScrollApp = ({ configuration }) => {
             <div className='best' ref={scrollContainerRef}>
                 {
                     bests.map((x, index) => (
-                        <div onClick={() => navigate('/details/:1')} key={index} className='product-card' style={{ width: `${configuration.width}`, cursor: 'pointer' }}>
+                        <div
+                            //onClick={() => navigate('/details/:1')}
+                            key={index} className='product-card' style={{ width: `${configuration.width}`, cursor: 'pointer' }}>
                             <div className='product-image'>
                                 <img src={x.img} alt={x.title} className='img-fluid' />
                             </div>

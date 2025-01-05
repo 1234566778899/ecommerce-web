@@ -74,7 +74,7 @@ export const NavbarApp = () => {
                                 )
                             }
                         </span>
-                        <span className='logo' style={{ cursor: 'pointer' }} onClick={() => navigate('/home')}>IGNITE</span>
+                        <span className='logo' style={{ cursor: 'pointer' }} onClick={() => navigate('/home')}>KAWISHOP</span>
                     </div>
                     <div className='search-bar'>
                         <input type="text" placeholder="¿Que estas buscando?" />
@@ -84,16 +84,20 @@ export const NavbarApp = () => {
                     </div>
                     <div className='help-section'>
                         <i className=" fa-solid fa-headphones-simple"></i>
-                        <div className='help-text'>
+                        <div className='help-text' onClick={() => window.open('https://wa.me/51904435631', '_blank')}>
                             <span className='help-a'>¿Necesitas ayuda?</span>
-                            <span className='help-b'>+51 932597220</span>
+                            <span className='help-b'>+51 904435631</span>
                         </div>
+
                     </div>
                     <div>
-                        <button className='icon-button boton-buscar'>
+                        <button
+                            className='icon-button boton-buscar'>
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
-                        <button className='icon-button'>
+                        <button
+                            onClick={() => window.open('https://wa.me/51904435631', '_blank')}
+                            className='icon-button'>
                             <i className="fa-regular fa-comments"></i>
                         </button>
                         <button
@@ -125,14 +129,15 @@ export const NavbarApp = () => {
                 <hr style={{ color: 'gray' }} />
                 <ul style={{ fontWeight: 'bold', color: 'gray' }}>
                     <li>FAQs</li>
-                    <li>Contact</li>
-                    <li>My Account</li>
+                    <li>Contacto</li>
+                    <li>Mi cuenta</li>
                 </ul>
                 <hr style={{ color: 'gray' }} />
                 <ul className='icons'>
                     <li className="fa-brands fa-facebook"></li>
                     <li className="fa-brands fa-twitter"></li>
-                    <li className="fa-brands fa-whatsapp"></li>
+                    <li onClick={() => window.open('https://wa.me/51904435631', '_blank')}
+                        className="fa-brands fa-whatsapp"></li>
                 </ul>
                 <div className='country'>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Flag_of_Peru_%281825%E2%80%931884%29.svg/1024px-Flag_of_Peru_%281825%E2%80%931884%29.svg.png" alt="img" />

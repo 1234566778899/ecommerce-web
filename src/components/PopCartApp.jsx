@@ -40,7 +40,7 @@ export const PopCartApp = ({ close }) => {
                     cart.length > 0 && (
                         <div style={{ padding: '20px', background: '#F8F9FA' }}>
                             <div className='cart-free' style={{ background: 'white' }}>
-                                <span>SO CLOSE, JUST <strong>£363.00</strong> TO GO FOR <strong>FREE SHIPPING.</strong></span>
+                                <span>TAN CERCA, SOLO <strong>S/. 20.00</strong> PARA <strong>ENVÍO GRATIS.</strong></span>
                                 <div className='free-progress'>
                                     <div></div>
                                 </div>
@@ -48,12 +48,13 @@ export const PopCartApp = ({ close }) => {
                             <div className='cart-schedule'>
                                 <div>
                                     <i className="fa-regular fa-circle-question" style={{ fontSize: '1.1rem' }}></i>
-                                    <span className='ms-3'>Order before <strong>8pm EST</strong> for next day delivery.</span>
+                                    <span className='ms-3'>Realiza tu pedido antes de las <strong>8 pm EST</strong> para entrega al día siguiente.</span>
                                 </div>
                                 <button style={{ background: 'none', border: 'none', color: 'white' }}>
                                     <i className="fa-solid fa-xmark" style={{ fontSize: '1rem' }}></i>
                                 </button>
                             </div>
+
                             {
                                 cart.map((item, index) => (
                                     <div key={index} className='cart-item'>

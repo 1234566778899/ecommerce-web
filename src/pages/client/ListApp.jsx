@@ -46,7 +46,7 @@ export const ListApp = () => {
                 <br />
                 <div className="container">
                     <span style={{ display: 'flex' }}>
-                        <h1>ALL</h1>
+                        <h1>Todos</h1>
                         <span className='fw-bold'>(35)</span>
                     </span>
                     <div className='tab-filter'>

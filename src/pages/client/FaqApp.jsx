@@ -10,51 +10,51 @@ export const FaqApp = () => {
             category: 'Orders',
             open: false,
             icon: 'fa-regular fa-credit-card',
-            q: 'What payment methods do you accept?',
-            r: 'We accept a variety of payment methods including credit and debit cards, PayPal, Apple Pay, and Google Pay. For a complete list of accepted payment methods, please refer to our Payment Options section.'
+            q: '¿Qué métodos de pago aceptan?',
+            r: 'Aceptamos varios métodos de pago, incluyendo tarjetas de crédito y débito, PayPal, Apple Pay y Google Pay. Para ver la lista completa de métodos de pago aceptados, por favor consulte nuestra sección de Opciones de Pago.'
         },
         {
             category: 'Orders',
             open: false,
             icon: 'fa-solid fa-right-left',
-            q: 'What is your return policy?',
-            r: 'We offer a 30-day return policy on all items. Products must be returned in their original condition and packaging. Some exclusions may apply. Please visit our Returns & Refunds page for more details.'
+            q: '¿Cuál es su política de devoluciones?',
+            r: 'Ofrecemos una política de devolución de 30 días para todos los productos. Los productos deben ser devueltos en su estado y empaque original. Pueden aplicarse algunas exclusiones. Para más detalles, por favor visite nuestra página de Devoluciones y Reembolsos.'
         },
         {
             category: 'Orders',
             open: false,
             icon: 'fa-regular fa-circle-question',
-            q: 'Can I change or cancel my order?',
-            r: 'You can change or cancel your order within 24 hours of placing it, as long as it has not yet been dispatched. Please contact our customer service team immediately if you need to make a change.'
+            q: '¿Puedo cambiar o cancelar mi pedido?',
+            r: 'Puede cambiar o cancelar su pedido dentro de las 24 horas posteriores a la realización del mismo, siempre que no haya sido despachado. Por favor, contacte a nuestro equipo de servicio al cliente inmediatamente si necesita hacer un cambio.'
         },
         // Products
         {
             category: 'Products',
             open: false,
             icon: 'fa-solid fa-key',
-            q: 'How do I set up my new device?',
-            r: 'Most devices come with a quick start guide in the box. Additionally, we offer online setup guides and tutorials for various products. Check the "Support" or "Tutorials" section on our website for detailed instructions.'
+            q: '¿Cómo configuro mi nuevo dispositivo?',
+            r: 'La mayoría de los dispositivos vienen con una guía de inicio rápido en la caja. Además, ofrecemos guías de configuración y tutoriales en línea para varios productos. Consulte la sección "Soporte" o "Tutoriales" en nuestro sitio web para instrucciones detalladas.'
         },
         {
             category: 'Products',
             open: false,
             icon: 'fa-solid fa-house',
-            q: 'Do you offer warranties on your products?',
-            r: 'Yes, all our products come with a manufacturer\'s warranty. The duration and terms of the warranty vary by product and manufacturer. Additional extended warranty options may be available for purchase.'
+            q: '¿Ofrecen garantías para sus productos?',
+            r: 'Sí, todos nuestros productos vienen con una garantía del fabricante. La duración y los términos de la garantía varían según el producto y el fabricante. Es posible que haya opciones adicionales de garantía extendida disponibles para su compra.'
         },
         {
             category: 'Shipping',
             open: false,
             icon: 'fa-solid fa-plane',
-            q: 'How long does shipping take?',
-            r: 'Shipping times vary based on your location and the shipping method selected. Typically, orders are delivered within 5-7 business days.'
+            q: '¿Cuánto tiempo tarda el envío?',
+            r: 'El tiempo de envío varía según su ubicación y el método de envío seleccionado. Típicamente, los pedidos se entregan dentro de 2 a 3 días hábiles.'
         },
         {
             category: 'Shipping',
             open: false,
             icon: 'fa-solid fa-truck',
-            q: 'Can I track my order?',
-            r: 'Yes, once your order is shipped, you will receive a tracking number via email. You can use this number on our website to monitor the status of your delivery.'
+            q: '¿Puedo rastrear mi pedido?',
+            r: 'Sí, una vez que su pedido sea enviado, recibirá un número de seguimiento por correo electrónico. Puede usar este número en nuestro sitio web para monitorear el estado de su entrega.'
         },
     ]);
 

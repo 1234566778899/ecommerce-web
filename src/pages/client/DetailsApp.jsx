@@ -219,10 +219,11 @@ export const DetailsApp = () => {
                                                     <i className="fa-solid fa-truck" style={{ fontSize: '1.2rem' }}></i>
                                                 </div>
                                                 <div className='ms-3'>
-                                                    <h6 className='fw-bold'>Pickup available at Ignite HQ</h6>
-                                                    <p style={{ fontSize: '0.9rem' }}>Usually ready in 24 hours</p>
-                                                    <a style={{ color: 'gray', fontSize: '0.9rem' }} href="#">View store information</a>
+                                                    <h6 className='fw-bold'>Recogida disponible en Ignite HQ</h6>
+                                                    <p style={{ fontSize: '0.9rem' }}>Generalmente listo en 24 horas</p>
+                                                    <a style={{ color: 'gray', fontSize: '0.9rem' }} href="#">Ver información de la tienda</a>
                                                 </div>
+
                                             </div>
                                             <hr style={{ color: '#ECECEC' }} />
                                             <p style={{ fontSize: '1.1rem' }}>¿Quieres entrega al día siguiente? ¡Apresúrate!</p>

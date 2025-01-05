@@ -1,3 +1,3 @@
 export const CONFIG = {
-    uri: 'http://localhost:4000'
+    uri: 'https://ecommcer-kawishop-1234.ue.r.appspot.com'
 }

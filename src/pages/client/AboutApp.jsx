@@ -2,6 +2,7 @@ import React from 'react'
 import { NavbarApp } from '../../components/NavbarApp'
 import '../../styles/About.css'
 import { FooterApp } from '../../components/FooterApp'
+
 export const AboutApp = () => {
     return (
         <div className='inter'>
@@ -9,8 +10,8 @@ export const AboutApp = () => {
                 <NavbarApp />
                 <div className='about-main'>
                     <div>
-                        <span>  IGNITE</span>
-                        <h2>Quality tech since 2012</h2>
+                        <span>KAWISHOP</span>
+                        <h2>Calidad tecnológica desde 2012</h2>
                     </div>
                 </div>
             </div>
@@ -20,9 +21,9 @@ export const AboutApp = () => {
                         <img className='img-1' src="https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/redd-f-5U_28ojjgms-unsplash.jpg?v=1713538712&width=750" alt="" />
                     </div>
                     <div>
-                        <h1 className='fw-bold'>Lighting the fuse.</h1>
-                        <p className='mt-4'>Ignite started in 2012 in an MIT dorm room, founded by Jamie Chen and Alex Rivera, two college roommates with a passion for cutting-edge technology.</p>
-                        <p>Initially focusing on high-quality, hard-to-find computer components, they quickly distinguished themselves from the rest and gained traction via word of mouth and social media.</p>
+                        <h1 className='fw-bold'>Encendiendo la chispa.</h1>
+                        <p className='mt-4'>Ignite comenzó en 2012 en un dormitorio del MIT, fundada por Jamie Chen y Alex Rivera, dos compañeros de universidad con pasión por la tecnología de vanguardia.</p>
+                        <p>Inicialmente centrados en componentes de computadoras de alta calidad y difíciles de encontrar, rápidamente se distinguieron y ganaron terreno a través del boca a boca y las redes sociales.</p>
                         <div className='img-about'>
                             <img src="https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/darshan-patel-QJEVpydulGs-unsplash.jpg?v=1713541030&width=130" alt="img" />
                             <img src="https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg?v=1713535681&width=130" alt="img" />
@@ -31,9 +32,8 @@ export const AboutApp = () => {
                 </div>
                 <div className='about-c-2'>
                     <div>
-                        <h1 className='fw-bold'>Blast off.</h1>
-                        <p className='mt-3'>Expanding their inventory to include a wide range of tech products like smart home devices and virtual reality systems, Ignite moved into a Cambridge office by 2015, growing a full-time staff and maintaining core values of exceptional service.
-                        </p>
+                        <h1 className='fw-bold'>Despegue.</h1>
+                        <p className='mt-3'>Expandiendo su inventario para incluir una amplia gama de productos tecnológicos como dispositivos para el hogar inteligente y sistemas de realidad virtual, Ignite se mudó a una oficina en San Isidro, Lima, para 2015, ampliando su personal a tiempo completo y manteniendo los valores fundamentales de un servicio excepcional.</p>
                         <div className='cont-cohete'>
                             <i className="fa-solid fa-rocket"></i>
                         </div>
@@ -48,6 +48,5 @@ export const AboutApp = () => {
             <br />
             <FooterApp />
         </div>
-
     )
 }

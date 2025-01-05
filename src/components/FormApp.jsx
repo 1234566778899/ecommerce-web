@@ -44,18 +44,7 @@ export const FormApp = ({ close }) => {
                                             <img style={{ width: '50px', height: '50px', borderRadius: '4px' }}
                                                 src={item.img} alt="img" />
                                             <div className='ms-2' style={{ display: 'flex', alignItems: 'start', flexDirection: 'column' }}>
-                                                <div
-                                                    style={{
-                                                        textAlign: 'start',
-                                                        display: '-webkit-box',
-                                                        WebkitBoxOrient: 'vertical',
-                                                        WebkitLineClamp: 2,
-                                                        overflow: 'hidden',
-                                                        textOverflow: 'ellipsis',
-                                                        width: '250px',
-                                                        fontWeight: 'bold'
-                                                    }}
-                                                >{item.name}</div>
+                                                <div className='name-form'>{item.name}</div>
                                                 <span>{item.quantity} Unidad{item.quantity > 0 ? 'es' : ''}</span>
                                             </div>
                                         </div>

@@ -146,13 +146,13 @@
 }
 
 .bill-2 img {
-    width: 60px;
+    width: 80px;
 }
 
 .bill-3 {
     background-color: #393939;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 10px;
     align-items: center;
     color: white;
@@ -174,4 +174,34 @@
 
 .input-cupon:focus {
     border: 1px solid rgb(66, 66, 66);
+}
+
+.name-form {
+    text-align: start;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 250px;
+    font-weight: bold;
+}
+
+@media screen and (max-width:720px) {
+    .name-form {
+        width: 100px;
+    }
+
+    .bills {
+        flex-wrap: nowrap;
+    }
+
+    .bills>div {
+        width: 100%;
+    }
+
+    .form-content {
+        width: 95%;
+        margin-top: 110px;
+    }
 }

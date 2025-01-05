@@ -3,48 +3,55 @@ import React, { useEffect, useRef, useState } from 'react'
 export const ReviewApp = () => {
     const [bests, setBests] = useState([
         {
-            title: 'Fast Shipping',
-            description: 'Ordered a laptop and it arrived the next day. Super impressed with the speed and the careful packaging.',
+            title: 'Envío rápido',
+            description: 'Compré una laptop y llegó al día siguiente. Muy impresionado con la rapidez y el cuidado en el embalaje.',
             photo: '',
-            name: 'Jordan Smith',
-            address: 'Lima, Perú'
+            name: 'Carlos Gómez',
+            address: 'Lima, Perú',
+            img: 'https://www.shutterstock.com/image-photo/street-portrait-smiling-peruvian-man-260nw-2331305151.jpg'
         },
         {
-            title: 'Excellent service',
-            description: 'Ordered a laptop and it arrived the next day. Super impressed with the speed and the careful packaging.',
+            title: 'Excelente servicio',
+            description: 'Compré una laptop y llegó al día siguiente. Muy impresionado con la rapidez y el cuidado en el embalaje.',
             photo: '',
-            name: 'Jordan Smith',
-            address: 'Lima, Perú'
+            name: 'María Rodríguez',
+            address: 'Cusco, Perú',
+            img: 'https://www.shutterstock.com/image-photo/portrait-smiling-farmer-guinea-pig-260nw-2196442731.jpg'
         },
         {
-            title: 'Great selection',
-            description: 'Ordered a laptop and it arrived the next day. Super impressed with the speed and the careful packaging.',
+            title: 'Gran selección',
+            description: 'Compré una laptop y llegó al día siguiente. Muy impresionado con la rapidez y el cuidado en el embalaje.',
             photo: '',
-            name: 'Jordan Smith',
-            address: 'Lima, Perú'
+            name: 'José Fernández',
+            address: 'Arequipa, Perú',
+            img: 'https://st4.depositphotos.com/27654548/40248/i/450/depositphotos_402480402-stock-photo-latin-indian-boy-mountains.jpg'
         },
         {
-            title: 'Top quality',
-            description: 'Ordered a laptop and it arrived the next day. Super impressed with the speed and the careful packaging.',
+            title: 'Calidad superior',
+            description: 'Compré una laptop y llegó al día siguiente. Muy impresionado con la rapidez y el cuidado en el embalaje.',
             photo: '',
-            name: 'Jordan Smith',
-            address: 'Lima, Perú'
+            name: 'Ana Morales',
+            address: 'Trujillo, Perú',
+            img: 'https://media.istockphoto.com/id/864520802/es/foto/retrato-de-un-sonriente-joven-de-am%C3%A9rica-latina-con-una-chaqueta-de-ante-marr%C3%B3n-disparos.jpg?s=612x612&w=0&k=20&c=pFNlOQu-hA1Z9MXS0_6hQGwrnJoldmX-H5tZ9Fjzl_E='
         },
         {
-            title: 'Reliable Store',
-            description: 'Ordered a laptop and it arrived the next day. Super impressed with the speed and the careful packaging.',
+            title: 'Tienda confiable',
+            description: 'Compré una laptop y llegó al día siguiente. Muy impresionado con la rapidez y el cuidado en el embalaje.',
             photo: '',
-            name: 'Jordan Smith',
-            address: 'Lima, Perú'
+            name: 'Luis Pérez',
+            address: 'Piura, Perú',
+            img: 'https://media.istockphoto.com/id/1372427454/es/foto/padre-hispano-con-cuadernos-fuera-de-la-escuela-en-zona-rural-hombre-adulto-maya-listo-para-ir.jpg?s=612x612&w=0&k=20&c=QKCDReY4X3KovsujlkeFAJePUc6Fdgr4MZMmjgsUaqo='
         },
         {
-            title: 'User-friendly website',
-            description: 'Ordered a laptop and it arrived the next day. Super impressed with the speed and the careful packaging.',
+            title: 'Sitio web fácil de usar',
+            description: 'Compré una laptop y llegó al día siguiente. Muy impresionado con la rapidez y el cuidado en el embalaje.',
             photo: '',
-            name: 'Jordan Smith',
-            address: 'Lima, Perú'
+            name: 'Laura Sánchez',
+            address: 'Chiclayo, Perú',
+            img: 'https://elperuano.pe/fotografia//thumbnail/2021/12/02/000141185M.jpg'
         },
     ])
+
     const scrollContainerRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
@@ -109,7 +116,8 @@ export const ReviewApp = () => {
                                 <p className='mt-2'>{x.description}</p>
                                 <div className="line"></div>
                                 <div className='mt-3' style={{ display: 'flex', alignItems: 'center' }}>
-                                    <img style={{ width: '40px', height: '40px', borderRadius: '50%' }} src="https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Portrait_of_a_person_with_a_friendly_expression_casual_and_relaxed_features_possibly_wearing_a_t-shirt_or_casual_top._The_background_is_a_soft_neut.webp?crop=center&height=100&v=1712769883&width=100" alt="img" />
+                                    <img style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }}
+                                        src={x.img} alt="img" />
                                     <div className='ms-3' style={{ display: 'flex', flexDirection: 'column' }}>
                                         <span>{x.name}</span>
                                         <span style={{ fontSize: '0.9rem', color: 'gray' }}>{x.address}</span>

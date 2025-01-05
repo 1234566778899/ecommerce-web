@@ -326,6 +326,22 @@
 }
 
 @media screen and (max-width:768px) {
+    .pop-cart>div {
+        width: 96%;
+        margin-top: 90px;
+        animation: none;
+    }
+
+    .cart-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item img {
+        width: 50px;
+    }
+
     .content-details {
         display: flex;
         gap: 0;

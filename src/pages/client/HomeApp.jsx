@@ -5,15 +5,16 @@ import { BarMessageApp } from '../../components/BarMessageApp';
 import { ReviewApp } from '../../components/ReviewApp';
 import { FooterApp } from '../../components/FooterApp';
 import { NavbarApp } from '../../components/NavbarApp';
+import { useNavigate } from 'react-router-dom';
 export const HomeApp = () => {
     const categories = [
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Buds_FE_Graphite_Case_Dynamic_Open_Buds_Out_RGB-scaled.jpg?v=1713347852&width=1100',
-            name: 'Audio'
+            name: 'Audífonos'
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Pixel_8__Obsidian_2.original.jpg?v=1728460949&width=1100',
-            name: 'Phones'
+            name: 'Celulares'
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/XPS16graphite1.png?v=1727368280&width=1100',
@@ -21,15 +22,15 @@ export const HomeApp = () => {
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Nest_Wifi_ProductSand_Q322.original.jpg?v=1713347046&width=1100',
-            name: 'Smart Home'
+            name: 'Hogar Inteligente'
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/Fitbit_Charge_5_tracker_Render_3QTR_Core_Lunar_.original.jpg?v=1707084539&width=1100',
-            name: 'Smart Watches'
+            name: 'Relojes Inteligentes'
         },
         {
             img: 'https://benchmark-electronics-demo.myshopify.com/cdn/shop/files/u3425we-cfp-00030lf090-gy.png?v=1727377667&width=550',
-            name: 'Monitors'
+            name: 'Monitores'
         },
     ]
     const [currentMain, setCurrentMain] = useState(0);
@@ -39,39 +40,40 @@ export const HomeApp = () => {
         }, 5000);
         return () => clearInterval(interval);
     }, []);
+    const navigate = useNavigate();
+
     return (
         <div className='inter' style={{ background: '#F8F8F8' }}>
             <NavbarApp />
             <div className='container'>
                 <div className={`main main-1 ${currentMain == 0 ? 'main-active' : ''}`}>
                     <div>
-                        <p>Now in Obsidian</p>
-                        <h1>Time for an upgrade?</h1>
-                        <p>From $899</p>
-                        <button>
-                            BUY <i className="ms-2 fa-solid fa-arrow-right"></i>
+                        <p>Ahora en Obsidian</p>
+                        <h1>¿Es hora de una actualización?</h1>
+                        <p>Desde $899</p>
+                        <button onClick={() => navigate('/products')}>
+                            COMPRAR <i className="ms-2 fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
                 <div className={`main main-2 ${currentMain == 1 ? 'main-active' : ''}`}>
                     <div>
-                        <h1>Sharp shots  very time.</h1>
-                        <p>All new Prime Solar S24 Plus</p>
-                        <button>
-                            PRE - ORDER <i className="ms-2 fa-solid fa-arrow-right"></i>
+                        <h1>Disparos nítidos, siempre.</h1>
+                        <p>Todo nuevo Prime Solar S24 Plus</p>
+                        <button onClick={() => navigate('/products')}>
+                            PRE-ORDENAR <i className="ms-2 fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
                 <div className={`main main-3 ${currentMain == 2 ? 'main-active' : ''}`}>
                     <div>
-                        <p>Audio deals</p>
-                        <h1>Beautiful beats</h1>
-                        <button>
-                            PRE - ORDER<i className="ms-2 fa-solid fa-arrow-right"></i>
+                        <p>Ofertas de audio</p>
+                        <h1>Sonidos hermosos</h1>
+                        <button onClick={() => navigate('/products')}>
+                            PRE-ORDENAR <i className="ms-2 fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
-
                 <br />
                 <br />
                 <h1 className='fw-bold'>Los más vendido</h1>
@@ -79,8 +81,8 @@ export const HomeApp = () => {
                 <ViewScrollApp configuration={{ width: '230px' }} />
                 <br />
                 <br />
-                <h1 className='fw-bold'><span className='text-wai'>Nuestra gama.</span> <span> Descubra todo</span> </h1>
-                <h1 className='fw-bold'> lo que tenemos para ofrecerle.</h1>
+                <h1 className='fw-bold'><span className='text-wai'>Nuestra gama.</span> </h1>
+                <h1 className='fw-bold'> <span> Descubra todo</span> lo que tenemos para ofrecerle.</h1>
                 <br />
                 <div className='category-content'>
                     {
@@ -104,11 +106,12 @@ export const HomeApp = () => {
                     </div>
                     <div className='old-text'>
                         <div style={{ width: '400px' }}>
-                            <h1 className='fw-bold'>Can your old phone do this?</h1>
-                            <p className='mt-4'>The brand new Solar S24 Ultra - with dynamic background blur.</p>
+                            <h1 className='fw-bold'>¿Tu viejo teléfono puede hacer esto?</h1>
+                            <p className='mt-4'>El completamente nuevo Solar S24 Ultra - con desenfoque dinámico de fondo.</p>
                             <button className='mt-2' style={{ background: 'none', color: '#1967D2', border: 'none' }}>Mostrar más <i className="fa-solid fa-arrow-right ms-2"></i></button>
                         </div>
                     </div>
+
                     <br />
                 </div>
             </div>
@@ -117,7 +120,7 @@ export const HomeApp = () => {
                 <b></b>
                 <div className="container">
                     <h1 className='fw-bold'>Últimas laptops</h1>
-                    <p>Gaming? Working? Creating? We've got you covered.</p>
+                    <p>¿Gaming? ¿Trabajo? ¿Creación? Te tenemos cubierto.</p>
                     <button style={{ background: 'none', color: '#1967D2', border: 'none' }}>Más laptops <i className="fa-solid fa-arrow-right ms-2"></i></button>
                 </div>
                 <div className="container">
@@ -135,27 +138,28 @@ export const HomeApp = () => {
             <div style={{ background: '#191C1C', color: 'white' }}>
                 <br />
                 <br />
-                <h1 className='text-center fw-bold'>Who, us?</h1>
+                <h1 className='text-center fw-bold'>Nosotros</h1>
                 <br />
-                <div className='mt-4 pb-5 who-us' >
+                <div className='mt-4 pb-5 who-us'>
                     <div className='w-item'>
-                        <span style={{ fontSize: '0.9rem' }}>OVER</span>
+                        <span style={{ fontSize: '0.9rem' }}>MÁS DE</span>
                         <span className='text-a' style={{ fontSize: '5rem' }}>142K</span>
-                        <span style={{ fontSize: '1.2rem' }}>Products sold</span>
+                        <span style={{ fontSize: '1.2rem' }}>Productos vendidos</span>
                     </div>
                     <div className='w-item'>
-                        <span style={{ fontSize: '0.9rem' }}>WITH</span>
+                        <span style={{ fontSize: '0.9rem' }}>CON</span>
                         <span className='text-b' style={{ fontSize: '5rem' }}>95%</span>
-                        <span style={{ fontSize: '1.2rem' }}>Positives reviews</span>
+                        <span style={{ fontSize: '1.2rem' }}>Reseñas positivas</span>
                     </div>
                     <div className='w-item'>
-                        <span style={{ fontSize: '0.9rem' }}>SELLING IN</span>
-                        <span className='text-c' style={{ fontSize: '5rem' }}>12</span>
-                        <span style={{ fontSize: '1.2rem' }}>Distritos</span>
+                        <span style={{ fontSize: '0.9rem' }}>VENDIENDO EN</span>
+                        <span className='text-c' style={{ fontSize: '5rem' }}>20</span>
+                        <span style={{ fontSize: '1.2rem' }}>Provincias</span>
                     </div>
                 </div>
                 <ReviewApp />
             </div>
+
             <br />
             <br />
             <h1 className='text-center fw-bold'>Encuentra tu <span className='text-wai'>vibra</span></h1>
