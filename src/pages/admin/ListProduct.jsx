@@ -5,56 +5,7 @@ import { CONFIG } from '../../config'
 import { showInfoToast } from '../../utils/showInfoTast'
 
 export const ListProduct = () => {
-    const [products, setProducts] = useState([
-        {
-            name: 'Camiseta corta',
-            status: 'Activo',
-            stock: 10,
-            category: 'Camisas',
-            type: '',
-            vendor: 'Mi tienda'
-        },
-        {
-            name: 'Reloj',
-            status: 'Activo',
-            stock: 10,
-            category: 'Camisas',
-            type: '',
-            vendor: 'Mi tienda'
-        },
-        {
-            name: 'Iphone 10',
-            status: 'Activo',
-            stock: 10,
-            category: 'Camisas',
-            type: '',
-            vendor: 'Mi tienda'
-        },
-        {
-            name: 'Polera Real Madrid',
-            status: 'Activo',
-            stock: 10,
-            category: 'Camisas',
-            type: '',
-            vendor: 'Mi tienda'
-        },
-        {
-            name: 'Laptop Rayzen 5',
-            status: 'Activo',
-            stock: 10,
-            category: 'Camisas',
-            type: '',
-            vendor: 'Mi tienda'
-        },
-        {
-            name: 'Play Station 5',
-            status: 'Activo',
-            stock: 10,
-            category: 'Camisas',
-            type: '',
-            vendor: 'Mi tienda'
-        },
-    ])
+    const [products, setProducts] = useState([])
     const getProducts = () => {
         axios.post(`${CONFIG.uri}/products/retrieve`)
             .then(res => {
