@@ -76,7 +76,7 @@ export const FaqApp = () => {
                 <div className='faq-main'>
                     <div>
                         <h1>FAQs </h1>
-                        <p>Got a question? We've got the answer.</p>
+                        <p>¿Tienes alguna pregunta? Nosotros tenemos la respuesta.</p>
                     </div>
                 </div>
             </div>
