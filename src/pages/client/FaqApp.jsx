@@ -7,21 +7,21 @@ export const FaqApp = () => {
     const [faqs, setFaqs] = useState([
         // Orders
         {
-            category: 'Orders',
+            category: 'Pedidos',
             open: false,
             icon: 'fa-regular fa-credit-card',
             q: '¿Qué métodos de pago aceptan?',
-            r: 'Aceptamos varios métodos de pago, incluyendo tarjetas de crédito y débito, PayPal, Apple Pay y Google Pay. Para ver la lista completa de métodos de pago aceptados, por favor consulte nuestra sección de Opciones de Pago.'
+            r: 'Aceptamos varios métodos de pago, incluyendo tarjetas de crédito y débito, PayPal y Yape. Para ver la lista completa de métodos de pago aceptados, por favor consulte nuestra sección de Opciones de Pago.'
         },
         {
-            category: 'Orders',
+            category: 'Pedidos',
             open: false,
             icon: 'fa-solid fa-right-left',
             q: '¿Cuál es su política de devoluciones?',
             r: 'Ofrecemos una política de devolución de 30 días para todos los productos. Los productos deben ser devueltos en su estado y empaque original. Pueden aplicarse algunas exclusiones. Para más detalles, por favor visite nuestra página de Devoluciones y Reembolsos.'
         },
         {
-            category: 'Orders',
+            category: 'Pedidos',
             open: false,
             icon: 'fa-regular fa-circle-question',
             q: '¿Puedo cambiar o cancelar mi pedido?',
@@ -29,28 +29,28 @@ export const FaqApp = () => {
         },
         // Products
         {
-            category: 'Products',
+            category: 'Productos',
             open: false,
             icon: 'fa-solid fa-key',
             q: '¿Cómo configuro mi nuevo dispositivo?',
             r: 'La mayoría de los dispositivos vienen con una guía de inicio rápido en la caja. Además, ofrecemos guías de configuración y tutoriales en línea para varios productos. Consulte la sección "Soporte" o "Tutoriales" en nuestro sitio web para instrucciones detalladas.'
         },
         {
-            category: 'Products',
+            category: 'Productos',
             open: false,
             icon: 'fa-solid fa-house',
             q: '¿Ofrecen garantías para sus productos?',
             r: 'Sí, todos nuestros productos vienen con una garantía del fabricante. La duración y los términos de la garantía varían según el producto y el fabricante. Es posible que haya opciones adicionales de garantía extendida disponibles para su compra.'
         },
         {
-            category: 'Shipping',
+            category: 'Envios',
             open: false,
             icon: 'fa-solid fa-plane',
             q: '¿Cuánto tiempo tarda el envío?',
             r: 'El tiempo de envío varía según su ubicación y el método de envío seleccionado. Típicamente, los pedidos se entregan dentro de 2 a 3 días hábiles.'
         },
         {
-            category: 'Shipping',
+            category: 'Envios',
             open: false,
             icon: 'fa-solid fa-truck',
             q: '¿Puedo rastrear mi pedido?',
@@ -71,12 +71,12 @@ export const FaqApp = () => {
 
     return (
         <div className='inter'>
-            <div style={{ background: '#F8F9FA', height: '100vh' }}>
+            <div style={{ background: 'white', height: '100vh' }}>
                 <NavbarApp />
                 <div className='faq-main'>
                     <div>
                         <h1>FAQs </h1>
-                        <p>¿Tienes alguna pregunta? Nosotros tenemos la respuesta.</p>
+                        <p className='p-1'>¿Tienes alguna pregunta? Nosotros tenemos la respuesta.</p>
                     </div>
                 </div>
             </div>
