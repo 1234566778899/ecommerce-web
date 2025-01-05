@@ -128,8 +128,8 @@ export const NavbarApp = () => {
                 </ul>
                 <hr style={{ color: 'gray' }} />
                 <ul style={{ fontWeight: 'bold', color: 'gray' }}>
-                    <li>FAQs</li>
-                    <li>Contacto</li>
+                    <li onClick={() => navigate('/faqs')}>FAQs</li>
+                    <li onClick={() => window.open('https://wa.me/51904435631', '_blank')}>Contacto</li>
                     <li>Mi cuenta</li>
                 </ul>
                 <hr style={{ color: 'gray' }} />
