@@ -41,7 +41,7 @@ export const AddProduct = () => {
         axios.post(`${CONFIG.uri}/products`, formData)
             .then(res => {
                 showInfoToast('Se agregó correctamente');
-                navigate('/admin/products');
+                navigate('/app-admin/products');
             }).catch(error => {
                 console.log(error);
                 setIsLoading(false)
@@ -144,6 +144,7 @@ export const AddProduct = () => {
                                 {...register('price', { required: true })}
                                 className='input-main'
                                 type="number"
+                                step={0.01}
                                 placeholder='S/. 0'
                             />
                         </div>
@@ -159,6 +160,7 @@ export const AddProduct = () => {
                                 {...register('cost', { required: true })}
                                 className='input-main'
                                 type="number"
+                                step={0.01}
                                 placeholder='S/.'
                             />
                         </div>

@@ -13,6 +13,7 @@ export const ListApp = () => {
     const [products, setProducts] = useState(null);
     const navigate = useNavigate();
     const [filterVisible, setFilterVisible] = useState(false);
+    const [filterSelected, setFilterSelected] = useState({});
     const getProducts = () => {
         axios.post(`${CONFIG.uri}/products/retrieve`)
             .then(res => {
@@ -63,7 +64,10 @@ export const ListApp = () => {
                                 <div className='items-filter items-brand'>
                                     {
                                         brands.map((x, index) => (
-                                            <div key={index}>{x}</div>
+                                            <div
+                                                className={`item-filter ${filterSelected.brand && filterSelected.brand == x ? 'item-selected' : ''}`}
+                                                key={index}
+                                                onClick={() => setFilterSelected(prev => ({ ...prev, 'brand': x }))}>{x}</div>
                                         ))
                                     }
                                 </div>
@@ -73,7 +77,12 @@ export const ListApp = () => {
                                 <div className='items-filter items-color'>
                                     {
                                         colors.map((x, index) => (
-                                            <div key={index}>
+                                            <div
+                                                className={`item-filter ${filterSelected.color && filterSelected.color == x ? 'item-selected' : ''}`}
+                                                key={index}
+                                                style={{ height: '50px' }}
+                                                onClick={() => setFilterSelected(prev => ({ ...prev, 'color': x }))}
+                                            >
                                                 <span style={{ background: `${x}` }}></span>
                                             </div>
                                         ))
@@ -133,11 +142,17 @@ export const ListApp = () => {
                                                         <span className='price-before'>{item.priceCompare.toFixed(2)}</span>
                                                     </div>
                                                     <div className='mt-2' style={{ fontSize: '0.85rem' }}>
-                                                        <i className="fa-solid fa-star"></i>
-                                                        <i className="fa-solid fa-star"></i>
-                                                        <i className="fa-solid fa-star"></i>
-                                                        <i className="fa-solid fa-star"></i>
-                                                        <i className="fa-regular fa-star"></i>
+                                                        {
+                                                            Array.from({ length: item.stars }).map((_, index) => (
+                                                                <i className="fa-solid fa-star"></i>
+                                                            ))
+                                                        }
+                                                        {
+                                                            Array.from({ length: 5 - item.stars }).map((_, index) => (
+                                                                <i className="fa-regular fa-star"></i>
+                                                            ))
+                                                        }
+
                                                         <span style={{ color: '#777777' }}> ({item.reviews})</span>
                                                     </div>
                                                 </div>

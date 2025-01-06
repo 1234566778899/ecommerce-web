@@ -485,15 +485,6 @@
 
 }
 
-.items-color div {
-    width: 100%;
-    border: 1px solid #D1D1D1;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    align-items: center;
-}
 
 .items-color span {
     width: 20px;
@@ -506,11 +497,8 @@
     cursor: pointer;
 }
 
-.items-filter>div:hover {
-    border: 1px solid gray;
-}
 
-.items-brand div {
+.item-filter {
     width: 100%;
     border: 1px solid #D1D1D1;
     border-radius: 5px;
@@ -518,6 +506,14 @@
     justify-content: center;
     height: 80px;
     align-items: center;
+}
+
+.item-filter:hover {
+    border: 1px solid gray;
+}
+
+.item-selected {
+    border: 1px solid gray;
 }
 
 .top-list {

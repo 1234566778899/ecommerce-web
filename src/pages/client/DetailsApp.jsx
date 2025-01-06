@@ -159,7 +159,6 @@ export const DetailsApp = () => {
                         <br />
                         <h1 className='fw-bold' style={{ fontSize: '1.6em' }}>{product.name}</h1>
                         <p className='mt-3' style={{ fontSize: '1.1rem' }}>Desde S/. {product.price.toFixed(2)}</p>
-
                         <div className='mt-4 content-details'>
                             <div>
                                 <div className="content-d">
@@ -175,15 +174,14 @@ export const DetailsApp = () => {
                                     current={imgCurrent}
                                 />
 
-                                <div className='content-d mt-4 p-4'>
-                                    <h4>Especificaciones</h4>
-                                    <hr />
-                                    <table className='table'>
+                                <div className='content-d mt-4 p-2'>
+                                    <h5 className='fw-bold'>Detalles</h5>
+                                    <table className='table mt-3'>
                                         <tbody>
                                             {product.specs.map((x, index) => (
                                                 <tr key={index}>
-                                                    <td className='fw-bold'>{x.name}</td>
-                                                    <td>{x.description}</td>
+                                                    <td style={{ background: '#F5F5F5', width: '50%' }}>{x.name}</td>
+                                                    <td style={{ width: '50%' }}>{x.description}</td>
                                                 </tr>
                                             ))}
                                         </tbody>
@@ -191,8 +189,8 @@ export const DetailsApp = () => {
                                 </div>
 
                                 <div className='content-d mt-4'>
-                                    <h4 className='ps-3 pt-3'>Descripción</h4>
-                                    <hr />
+                                    <h4 className='ps-3 pt-3 fw-bold mb-3'>Descripción</h4>
+
                                     {product.photos.map((photo, index) => (
                                         <img
                                             key={index}
@@ -251,7 +249,7 @@ export const DetailsApp = () => {
                                             </div>
                                         )}
                                         <div style={{ border: '1px solid #F8F8F8' }}></div>
-                                        <div style={{ padding: '30px 20px' }}>
+                                        <div style={{ padding: '30px 30px' }}>
                                             <div className='content-desk'>
                                                 <div>
                                                     <span
@@ -324,8 +322,7 @@ export const DetailsApp = () => {
                                                     Comprar ahora - Paga al recibir
                                                 </button>
                                             </div>
-                                            <br />
-                                            <br />
+
                                             <div
                                                 className={`content-buy ${hideBuyContent ? 'd-none' : ''
                                                     }`}
@@ -344,7 +341,7 @@ export const DetailsApp = () => {
                                                     <button onClick={buyNow}>Comprar</button>
                                                 </div>
                                             </div>
-                                            <hr style={{ color: '#ECECEC' }} />
+
                                             <div className='d-flex mt-4'>
                                                 <div>
                                                     <i
@@ -354,10 +351,10 @@ export const DetailsApp = () => {
                                                 </div>
                                                 <div className='ms-3'>
                                                     <h6 className='fw-bold'>
-                                                        Recogida disponible en KAWISHOP
+                                                        Delivery a todo Lima Metropolitana
                                                     </h6>
                                                     <p style={{ fontSize: '0.9rem' }}>
-                                                        Generalmente listo en 24 horas
+                                                        Generalmente listo en 48 horas
                                                     </p>
                                                     <a
                                                         style={{ color: 'gray', fontSize: '0.9rem' }}

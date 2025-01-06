@@ -356,11 +356,12 @@
     background-color: #393939;
 }
 
-.content-desk {
-    padding: 30px 20px;
-}
 
 @media screen and (max-width:768px) {
+    .img-details {
+        height: auto;
+    }
+
     .content-desk {
         display: none;
     }
