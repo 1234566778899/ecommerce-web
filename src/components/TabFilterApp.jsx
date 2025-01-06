@@ -33,7 +33,7 @@ export const TabFilterApp = ({ visible, setVisible }) => {
                     <div className='items-filter items-color'>
                         {
                             colors.map((x, index) => (
-                                <div key={index}>
+                                <div className='item-filter' style={{ height: '50px' }} key={index}>
                                     <span style={{ background: `${x}` }}></span>
                                 </div>
                             ))

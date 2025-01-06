@@ -16,6 +16,9 @@ export const PopCartApp = ({ close }) => {
     const deleteItem = (name) => {
         setCart(prev => prev.filter(x => x.name !== name));
     }
+    const getTotal = () => {
+        return cart.reduce((sum, item) => item.price * item.quantity + sum, 0);
+    }
     return (
         <div className='pop-cart' onClick={() => close()}>
             <div onClick={(e) => e.stopPropagation()}>
@@ -39,12 +42,16 @@ export const PopCartApp = ({ close }) => {
                 {
                     cart.length > 0 && (
                         <div style={{ padding: '20px', background: '#F8F9FA' }}>
-                            <div className='cart-free' style={{ background: 'white' }}>
-                                <span>TAN CERCA, SOLO <strong>S/. 20.00</strong> PARA <strong>ENVÍO GRATIS.</strong></span>
-                                <div className='free-progress'>
-                                    <div></div>
-                                </div>
-                            </div>
+                            {
+                                getTotal() < 50 && (
+                                    <div className='cart-free' style={{ background: 'white' }}>
+                                        <span>TAN CERCA, SOLO <strong>S/. {(50 - getTotal()).toFixed(2)}</strong> PARA <strong>ENVÍO GRATIS.</strong></span>
+                                        <div className='free-progress'>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                )
+                            }
                             <div className='cart-schedule'>
                                 <div>
                                     <i className="fa-regular fa-circle-question" style={{ fontSize: '1.1rem' }}></i>
