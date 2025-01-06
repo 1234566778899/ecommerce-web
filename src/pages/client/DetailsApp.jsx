@@ -175,7 +175,7 @@ export const DetailsApp = () => {
                                 />
 
                                 <div className='content-d mt-4 p-2'>
-                                    <h5 className='fw-bold'>Detalles</h5>
+                                    <h4 className='fw-bold'>Detalles</h4>
                                     <table className='table mt-3'>
                                         <tbody>
                                             {product.specs.map((x, index) => (
