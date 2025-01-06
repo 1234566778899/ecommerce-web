@@ -94,7 +94,18 @@ export const ListApp = () => {
                                     <option value="7">Price, new to old</option>
                                 </select>
                             </div>
+                            {
+                                !products && (
+                                    <div className='mt-4 list-products'>
+                                        <div className='box-load'></div>
+                                        <div className='box-load'></div>
+                                        <div className='box-load'></div>
+                                        <div className='box-load'></div>
+                                    </div>
+                                )
+                            }
                             <div className='mt-4 list-products'>
+
                                 {
                                     products && products.map((item, index) => (
                                         <div key={index} className='item-product' onClick={() => navigate(`/details/${item._id}`)}>

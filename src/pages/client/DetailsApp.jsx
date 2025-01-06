@@ -340,8 +340,8 @@ export const DetailsApp = () => {
                                                     </span>
                                                 </div>
                                                 <div className='btn-fixed mt-1'>
-                                                    <button>Agregar al carro</button>
-                                                    <button>Comprar</button>
+                                                    <button onClick={addCart}>Agregar al carro</button>
+                                                    <button onClick={buyNow}>Comprar</button>
                                                 </div>
                                             </div>
                                             <hr style={{ color: '#ECECEC' }} />

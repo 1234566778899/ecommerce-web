@@ -133,6 +133,25 @@
     margin-bottom: 5px;
 }
 
+.box-load {
+    height: 200px;
+    border-radius: 4px;
+    background-color: #ddd;
+    animation: blink 1.2s infinite ease-in-out;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        background-color: #ddd;
+    }
+
+    50% {
+        background-color: #ccc;
+    }
+}
+
 @keyframes load {
     0% {
         transform: rotate(0deg);
