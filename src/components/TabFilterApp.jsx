@@ -18,11 +18,11 @@ export const TabFilterApp = ({ visible, setVisible }) => {
                         <i className="fa-solid fa-chevron-down"></i>
                     </div>
                     <div className='b-filter'>
-                        <div>APEX</div>
-                        <div>BENCHMARK</div>
-                        <div>EDGE</div>
-                        <div>PRIME</div>
-                        <div>VIDEE</div>
+                        <div className='item-filter'>APEX</div>
+                        <div className='item-filter'>BENCHMARK</div>
+                        <div className='item-filter'>EDGE</div>
+                        <div className='item-filter'>PRIME</div>
+                        <div className='item-filter'>VIDEE</div>
                     </div>
                 </div>
                 <div className='c-filter'>
