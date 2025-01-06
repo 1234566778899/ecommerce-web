@@ -79,7 +79,7 @@ export const FooterApp = () => {
                     <div style={{ fontSize: '1.3rem', display: 'flex', gap: '20px', cursor: 'pointer' }}>
                         <i className="fa-brands fa-facebook"></i>
                         <i className="fa-brands fa-instagram"></i>
-                        <i className="fa-brands fa-whatsapp"></i>
+                        <i onClick={() => window.open('https://wa.me/51904435631', '_blank')} className="fa-brands fa-whatsapp"></i>
                     </div>
                 </div>
             </div>

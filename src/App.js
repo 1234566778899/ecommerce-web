@@ -29,7 +29,7 @@ function App() {
           <Route path='about' element={<AboutApp />} />
           <Route path='details/:id' element={<DetailsApp />} />
         </Route>
-        <Route path='/admin' element={<Admin />}>
+        <Route path='/app-admin' element={<Admin />}>
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<ListProduct />} />
           <Route path='clients' element={<ListCustomer />} />

@@ -24,7 +24,7 @@ export const ListProduct = () => {
         <div style={{ padding: '10px 20px' }}>
             <div className='mt-3' style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ fontWeight: 'bold', fontSize: '1.3rem' }}>Productos</span>
-                <button className='btn-main-admin' onClick={() => navigate('/admin/add-product')}>Agregar producto</button>
+                <button className='btn-main-admin' onClick={() => navigate('/app-admin/add-product')}>Agregar producto</button>
             </div>
             <div className='content-table mt-3'>
                 <table className='text-center table table-product'>
@@ -44,7 +44,7 @@ export const ListProduct = () => {
                         {
                             products.map((x, index) => (
                                 <tr key={index}>
-                                    <td>{x.name}</td>
+                                    <td className='cell-name'>{x.name}</td>
                                     <td>
                                         <span className='status-active'>{x.status}</span>
                                     </td>

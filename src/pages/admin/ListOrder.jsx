@@ -56,7 +56,7 @@ export const ListOrder = () => {
                                     <td>{moment(x.createdAt).format('DD-MM-YYYY')}</td>
                                     <td>
                                         <button
-                                            onClick={() => window.open(`/admin/map/${x.lat}/${x.lng}`, '_blank')}
+                                            onClick={() => window.open(`/app-admin/map/${x.lat}/${x.lng}`, '_blank')}
                                             className='btn shadow-sm text-danger'><i className="fa-solid fa-location-dot"></i></button>
                                         <button className='ms-2 btn shadow-sm text-primary'><i className="fa-solid fa-paste"></i></button>
                                     </td>

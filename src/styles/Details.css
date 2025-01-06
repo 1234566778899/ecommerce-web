@@ -325,7 +325,50 @@
     gap: 20px;
 }
 
+.content-buy {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    background-color: white;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-fixed {
+    display: flex;
+}
+
+.btn-fixed>button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+}
+
+.btn-fixed>button:first-child {
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.btn-fixed>button:last-child {
+    color: white;
+    background-color: #393939;
+}
+
+.content-desk {
+    padding: 30px 20px;
+}
+
 @media screen and (max-width:768px) {
+    .content-desk {
+        display: none;
+    }
+
+    .content-buy {
+        display: block;
+    }
+
     .pop-cart>div {
         width: 96%;
         margin-top: 90px;
