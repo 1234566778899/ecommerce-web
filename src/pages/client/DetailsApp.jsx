@@ -25,7 +25,9 @@ export const DetailsApp = () => {
         now.setDate(now.getDate() + 1);
         return now;
     }
-
+    useEffect(() => {
+        console.log(hideBuyContent);
+    }, [hideBuyContent])
     const colors = {
         '#000': 'Negro',
         '#FDE4D3': 'Durazno',
@@ -122,13 +124,12 @@ export const DetailsApp = () => {
         const handleScroll = () => {
             if (!footerRef.current) return;
             const footerPosition = footerRef.current.getBoundingClientRect().top;
-            if (footerPosition <= window.innerHeight) {
-                setHideBuyContent(true);
-            } else {
+            if (footerPosition > window.innerHeight - 400) {
                 setHideBuyContent(false);
+            } else {
+                setHideBuyContent(true);
             }
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -156,10 +157,11 @@ export const DetailsApp = () => {
 
                 <div style={{ background: '#F8F8F8' }}>
                     <div className="container">
-                        <br />
-                        <h1 className='fw-bold' style={{ fontSize: '1.6em' }}>{product.name}</h1>
-                        <p className='mt-3' style={{ fontSize: '1.1rem' }}>Desde S/. {product.price.toFixed(2)}</p>
-                        <div className='mt-4 content-details'>
+                        <div className='title-details mt-3'>
+                            <h1 className='fw-bold' style={{ fontSize: '1.6em' }}>{product.name}</h1>
+                            <p className='mt-3' style={{ fontSize: '1.1rem' }}>Desde S/. {product.price.toFixed(2)}</p>
+                        </div>
+                        <div className='content-details'>
                             <div>
                                 <div className="content-d">
                                     <img
@@ -173,24 +175,179 @@ export const DetailsApp = () => {
                                     setCurrent={setImgCurrent}
                                     current={imgCurrent}
                                 />
+                                <h1 className='fw-bold mt-5 title-name' style={{ fontSize: '1.6em' }}>{product.name}</h1>
+                                <div className="content-d buy-mobile">
+                                    {product.variants && (
+                                        <div className='choose mt-4'>
+                                            <div>
+                                                <span style={{ fontWeight: 'bold' }}>
+                                                    Elige el color:{' '}
+                                                </span>
+                                                <span>
+                                                    {colors[product.variants.Color[variantCurrent['Color']]]}
+                                                </span>
+                                            </div>
+                                            <div
+                                                className='mt-3'
+                                                style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}
+                                            >
+                                                {product.variants.Color.map((x, index) => (
+                                                    <div
+                                                        key={index}
+                                                        onClick={() =>
+                                                            setVariantCurrent({
+                                                                ...variantCurrent,
+                                                                Color: x,
+                                                            })
+                                                        }
+                                                        className={`color-item ${x === variantCurrent['Color']
+                                                            ? 'img-current'
+                                                            : ''
+                                                            }`}
+                                                    >
+                                                        <div
+                                                            style={{
+                                                                boxShadow:
+                                                                    'inset 0px 4px 8px rgba(0, 0, 0, 0.2)',
+                                                                background: x,
+                                                                width: '25px',
+                                                                height: '25px',
+                                                                borderRadius: '50%',
+                                                            }}
+                                                        />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                    <div style={{ border: '1px solid #F8F8F8' }}></div>
+                                    <div style={{ padding: '30px 0px' }}>
+                                        <div className='content-mobile'>
+                                            <div>
+                                                <span
+                                                    style={{
+                                                        fontSize: '1.3rem',
+                                                        fontWeight: 'bold',
+                                                    }}
+                                                >
+                                                    S/. {product.price.toFixed(2)}
+                                                </span>{' '}
+                                                <br />
+                                                <span
+                                                    style={{
+                                                        fontSize: '0.9rem',
+                                                        color: 'gray',
+                                                    }}
+                                                >
+                                                    Impuestos incluidos
+                                                </span>
+                                            </div>
+                                            <div className='cart-field'>
+                                                <div className='cant'>
+                                                    <input
+                                                        value={quantity}
+                                                        onChange={(e) =>
+                                                            setQuantity(e.target.value)
+                                                        }
+                                                        type="text"
+                                                        className='w-100 text-center'
+                                                        min="1"
+                                                    />
+                                                    <div className='btns-inc'>
+                                                        <button
+                                                            onClick={() =>
+                                                                setQuantity(+quantity + 1)
+                                                            }
+                                                            className='btn-a'
+                                                        >
+                                                            <i className="fa-solid fa-chevron-up"></i>
+                                                        </button>
+                                                        <button
+                                                            onClick={() =>
+                                                                setQuantity(
+                                                                    +quantity - 1 <= 0
+                                                                        ? 1
+                                                                        : +quantity - 1
+                                                                )
+                                                            }
+                                                            className='btn-b'
+                                                        >
+                                                            <i className="fa-solid fa-chevron-down"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div className='w-100'>
+                                                    <button
+                                                        onClick={addCart}
+                                                        className='btn-add-cart'
+                                                    >
+                                                        <i className="fa-solid fa-cart-shopping me-2"></i>
+                                                        Agregar al carrito
+                                                    </button>
+                                                </div>
+                                            </div>
 
-                                <div className='content-d mt-4 p-2'>
-                                    <h4 className='fw-bold'>Detalles</h4>
-                                    <table className='table mt-3'>
-                                        <tbody>
-                                            {product.specs.map((x, index) => (
-                                                <tr key={index}>
-                                                    <td style={{ background: '#F5F5F5', width: '50%' }}>{x.name}</td>
-                                                    <td style={{ width: '50%' }}>{x.description}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
+                                            <button
+                                                onClick={buyNow}
+                                                className='btn-buy'
+                                            >
+                                                Comprar ahora - Paga al recibir
+                                            </button>
+                                        </div>
+                                        <div className='d-flex mt-4'>
+                                            <div>
+                                                <i
+                                                    className="fa-solid fa-truck"
+                                                    style={{ fontSize: '1.2rem' }}
+                                                ></i>
+                                            </div>
+                                            <div className='ms-3'>
+                                                <h6 className='fw-bold'>
+                                                    Entrega estimada entre 2 a 3 días
+                                                </h6>
+                                                <p style={{ fontSize: '0.9rem' }}>
+                                                    <strong>Compra con Confianza:</strong> Realiza el pago al momento de recibir tu producto en casa 🏠
+                                                </p>
+                                                <a
+                                                    style={{ color: 'gray', fontSize: '0.9rem' }}
+                                                    href="#"
+                                                >
+                                                    Ver información de la tienda
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <hr style={{ color: '#ECECEC' }} />
+
+                                        <p style={{ fontSize: '1.1rem' }}>
+                                            ¿Quieres entrega al día siguiente? ¡Apresúrate!
+                                        </p>
+                                        <div ref={footerRef} className='hour' style={{ fontSize: '1.1rem' }}>
+                                            <span>{timeLeft.hours}h</span>:
+                                            <span>{timeLeft.minutes}m</span>:
+                                            <span>{timeLeft.seconds}s</span>
+                                        </div>
+                                    </div>
                                 </div>
 
+                                <div className='content-d'>
+                                    <h6 style={{ fontSize: '0.85rem', padding: '12px 0', background: '#111', borderRadius: '3px' }}
+                                        className='fw-bold text-white px-2' >DETALLES DEL PRODUCTO</h6>
+                                    <div>
+                                        <table className='table'>
+                                            <tbody>
+                                                {product.specs.map((x, index) => (
+                                                    <tr key={index}>
+                                                        <td style={{ background: '#F5F5F5', width: '50%' }}>{x.name}</td>
+                                                        <td style={{ width: '50%' }}>{x.description}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                                 <div className='content-d mt-4'>
-                                    <h4 className='ps-3 pt-3 fw-bold mb-3'>Descripción</h4>
-
+                                    <h6 style={{ fontSize: '0.85rem', padding: '12px 0', background: '#111', borderRadius: '3px' }}
+                                        className='fw-bold text-white px-2' >DESCRIPCIÓN</h6>
                                     {product.photos.map((photo, index) => (
                                         <img
                                             key={index}
@@ -203,7 +360,7 @@ export const DetailsApp = () => {
                             </div>
                             <div>
                                 <div style={{ position: 'sticky', top: '2px' }}>
-                                    <div className="content-d">
+                                    <div className="content-d content-desk">
                                         {/* Variantes de color */}
                                         {product.variants && (
                                             <div style={{ padding: '20px' }}>
@@ -250,7 +407,7 @@ export const DetailsApp = () => {
                                         )}
                                         <div style={{ border: '1px solid #F8F8F8' }}></div>
                                         <div style={{ padding: '30px 30px' }}>
-                                            <div className='content-desk'>
+                                            <div >
                                                 <div>
                                                     <span
                                                         style={{
@@ -323,24 +480,7 @@ export const DetailsApp = () => {
                                                 </button>
                                             </div>
 
-                                            <div
-                                                className={`content-buy ${hideBuyContent ? 'd-none' : ''
-                                                    }`}
-                                            >
-                                                <div style={{ fontWeight: 'bold' }}>
-                                                    <span>S/.</span>
-                                                    <span style={{ fontSize: '1.4rem' }}>
-                                                        {product.price.toFixed(2)}
-                                                    </span>
-                                                    <span className='price-before'>
-                                                        {product.priceCompare.toFixed(2)}
-                                                    </span>
-                                                </div>
-                                                <div className='btn-fixed mt-1'>
-                                                    <button onClick={addCart}>Agregar al carro</button>
-                                                    <button onClick={buyNow}>Comprar</button>
-                                                </div>
-                                            </div>
+
 
                                             <div className='d-flex mt-4'>
                                                 <div>
@@ -378,7 +518,7 @@ export const DetailsApp = () => {
                                     </div>
 
                                     <div className='content-d mt-4 p-4'>
-                                        <h4>Información adicional</h4>
+                                        <h4 className='fw-bold'>Información adicional</h4>
                                         <hr />
                                         <div
                                             dangerouslySetInnerHTML={{
@@ -391,7 +531,21 @@ export const DetailsApp = () => {
                         </div>
                     </div>
                     <br />
-
+                    <div className='content-buy' style={{ display: `${hideBuyContent ? 'block' : 'none'}` }}>
+                        <div style={{ fontWeight: 'bold' }}>
+                            <span>S/.</span>
+                            <span style={{ fontSize: '1.4rem' }}>
+                                {product.price.toFixed(2)}
+                            </span>
+                            <span className='price-before'>
+                                {product.priceCompare.toFixed(2)}
+                            </span>
+                        </div>
+                        <div className='btn-fixed mt-1'>
+                            <button onClick={addCart}>Agregar al carro</button>
+                            <button onClick={buyNow}>Comprar</button>
+                        </div>
+                    </div>
                     <div className="container details-info">
                         <div
                             className='w-100 bg-white p-3 text-center'
@@ -431,9 +585,7 @@ export const DetailsApp = () => {
                     <br />
                 </div>
                 <br />
-                <div ref={footerRef}>
-                    <FooterApp />
-                </div>
+                <FooterApp />
             </div>
         </>
     );

@@ -33,8 +33,8 @@ export const FormApp = ({ close }) => {
                 {
                     !validInfo && (
                         <div>
-                            <div style={{ display: 'flex' }}>
-                                <h5 className='fw-bold mb-4'>¡PÍDELO AHORA! 🚚 ENVÍO GRATIS A TODO EL PERÚ - PAGA AL RECIBIR</h5>
+                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <h5 className='fw-bold mb-4 text-center w-100'>¡PÍDELO AHORA! PAGA AL RECIBIR 🚚</h5>
                                 <button onClick={() => close()} className='btn-close'></button>
                             </div>
                             {
