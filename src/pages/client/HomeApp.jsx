@@ -48,9 +48,9 @@ export const HomeApp = () => {
             <div className='container'>
                 <div className={`main main-1 ${currentMain == 0 ? 'main-active' : ''}`}>
                     <div>
-                        <p>Ahora en Obsidian</p>
-                        <h1>¿Es hora de una actualización?</h1>
-                        <p>Desde $899</p>
+                        <p>Ahora en KAWISHOP</p>
+                        <h1>Productos en tendencía</h1>
+                        <p>Desde S/. 39</p>
                         <button onClick={() => navigate('/products')}>
                             COMPRAR <i className="ms-2 fa-solid fa-arrow-right"></i>
                         </button>
@@ -58,8 +58,8 @@ export const HomeApp = () => {
                 </div>
                 <div className={`main main-2 ${currentMain == 1 ? 'main-active' : ''}`}>
                     <div>
-                        <h1>Disparos nítidos, siempre.</h1>
-                        <p>Todo nuevo Prime Solar S24 Plus</p>
+                        <h1>Porque pensamos en tí</h1>
+                        <p>Los mejores precios del mercado</p>
                         <button onClick={() => navigate('/products')}>
                             PRE-ORDENAR <i className="ms-2 fa-solid fa-arrow-right"></i>
                         </button>
@@ -67,8 +67,8 @@ export const HomeApp = () => {
                 </div>
                 <div className={`main main-3 ${currentMain == 2 ? 'main-active' : ''}`}>
                     <div>
-                        <p>Ofertas de audio</p>
-                        <h1>Sonidos hermosos</h1>
+                        <p>Ofertas por el mes de enero</p>
+                        <h1>Envío gratis</h1>
                         <button onClick={() => navigate('/products')}>
                             PRE-ORDENAR <i className="ms-2 fa-solid fa-arrow-right"></i>
                         </button>

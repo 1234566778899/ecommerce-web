@@ -8,13 +8,13 @@ export const TabFilterApp = ({ visible, setVisible }) => {
                 <button onClick={() => setVisible(false)}>
                     <i className="fa-solid fa-xmark"></i>
                 </button>
-                <span>Filtrar</span>
+                <span>FILTRAR</span>
                 <span></span>
             </div>
             <div className='p-filter'>
                 <div className='c-filter'>
                     <div>
-                        <span className='fw-bold'>BRAND</span>
+                        <span className='fw-bold'>MARCA</span>
                         <i className="fa-solid fa-chevron-down"></i>
                     </div>
                     <div className='b-filter'>
@@ -43,8 +43,8 @@ export const TabFilterApp = ({ visible, setVisible }) => {
 
             </div>
             <div className='b-down'>
-                <button className='w-75'>Clear all</button>
-                <button onClick={() => setVisible(false)} className='w-100'>SHOW 35 ITEMS</button>
+                <button className='w-75'>Limpiar</button>
+                <button onClick={() => setVisible(false)} className='w-100'>Mostrar todos</button>
             </div>
         </div>
     )

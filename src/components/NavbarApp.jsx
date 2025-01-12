@@ -112,7 +112,7 @@ export const NavbarApp = () => {
             </div>
             <div className='menu-items'>
                 <span onClick={() => navigate('/home')}>Inicio</span>
-                <span onClick={() => navigate('/products')}>Productos</span>
+                <span onClick={() => navigate('/products')}>Catalogo</span>
                 <span onClick={() => navigate('/about')}>Sobre nosotros</span>
                 <span onClick={() => navigate('/faqs')}>FAQs</span>
                 <span onClick={() => navigate('/contact')}>Contacto</span>
@@ -122,7 +122,7 @@ export const NavbarApp = () => {
                 className={`menu-2 ${menuVisible ? 'menu-2-active' : ''}`}>
                 <ul>
                     <li onClick={() => navigate('/home')}><i className="fa-solid fa-house me-3"></i>Inicio</li>
-                    <li onClick={() => navigate('/products')}><i className="fa-solid fa-cart-flatbed me-3"></i>Productos</li>
+                    <li onClick={() => navigate('/products')}><i className="fa-solid fa-cart-flatbed me-3"></i>Catalogo</li>
                     <li onClick={() => navigate('/about')}><i className="fa-solid fa-house me-2 me-3"></i>Sobre nosotros</li>
                     <li onClick={() => navigate('/contact')}><i className="fa-solid fa-house me-2 me-3"></i>Contacto</li>
                 </ul>

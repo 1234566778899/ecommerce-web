@@ -9,8 +9,9 @@ export const ViewDetailsScrollApp = ({ imgs, setCurrent, current }) => {
     const navigate = useNavigate();
     const checkScroll = () => {
         const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-        setShowLeft(scrollLeft > 0);
-        setShowRight(scrollLeft + clientWidth < scrollWidth);
+        console.log(scrollWidth);
+        setShowLeft(scrollLeft > 0 && scrollLeft < scrollWidth);
+        setShowRight(scrollLeft + clientWidth < scrollWidth - 50);
     };
 
     useEffect(() => {
@@ -62,9 +63,13 @@ export const ViewDetailsScrollApp = ({ imgs, setCurrent, current }) => {
                     ))
                 }
             </div>
-            <button className='scroll-button right' onClick={scrollRightHandler}>
-                <i className="fa-solid fa-chevron-right"></i>
-            </button>
+            {
+                showRight && (
+                    <button className='scroll-button right' onClick={scrollRightHandler}>
+                        <i className="fa-solid fa-chevron-right"></i>
+                    </button>
+                )
+            }
         </div>
     )
 }

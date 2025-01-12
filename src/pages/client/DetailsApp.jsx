@@ -47,6 +47,7 @@ export const DetailsApp = () => {
     const getProduct = () => {
         axios.get(`${CONFIG.uri}/products/${id}`)
             .then(res => {
+                console.log(res.data)
                 setProduct(res.data);
                 if (res.data.variants) {
                     const obj = Object.keys(res.data.variants).map(x => x);
@@ -100,7 +101,6 @@ export const DetailsApp = () => {
         setIsForm(true);
     };
 
-    // 6. Reloj de cuenta regresiva
     useEffect(() => {
         getProduct();
         const interval = setInterval(() => {
@@ -118,7 +118,6 @@ export const DetailsApp = () => {
         }, 1000);
         return () => clearInterval(interval);
     }, []);
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -163,12 +162,16 @@ export const DetailsApp = () => {
                         </div>
                         <div className='content-details'>
                             <div>
-                                <div className="content-d">
+                                <div className="content-d slider">
                                     <img
                                         src={product.imgs[imgCurrent]}
                                         alt="img"
                                         className='img-details'
                                     />
+                                    <div className='btn-rows'>
+                                        <button onClick={() => setImgCurrent(prev => prev - 1 < 0 ? 0 : prev - 1)}><i className="fa-solid fa-chevron-left"></i></button>
+                                        <button onClick={() => setImgCurrent(prev => prev + 1 >= product.imgs.length ? 0 : prev + 1)}><i className="fa-solid fa-chevron-right"></i></button>
+                                    </div>
                                 </div>
                                 <ViewDetailsScrollApp
                                     imgs={product.imgs}
@@ -328,26 +331,27 @@ export const DetailsApp = () => {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className='content-d'>
-                                    <h6 style={{ fontSize: '0.85rem', padding: '12px 0', background: '#111', borderRadius: '3px' }}
-                                        className='fw-bold text-white px-2' >DETALLES DEL PRODUCTO</h6>
-                                    <div>
-                                        <table className='table'>
-                                            <tbody>
-                                                {product.specs.map((x, index) => (
-                                                    <tr key={index}>
-                                                        <td style={{ background: '#F5F5F5', width: '50%' }}>{x.name}</td>
-                                                        <td style={{ width: '50%' }}>{x.description}</td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                {
+                                    product.specs.length > 1 && (
+                                        <div className='content-d'>
+                                            <h6 style={{ fontSize: '0.85rem', padding: '12px 0', background: '#111', borderRadius: '3px' }}
+                                                className='fw-bold text-white px-2' >DETALLES DEL PRODUCTO</h6>
+                                            <div>
+                                                <table className='table'>
+                                                    <tbody>
+                                                        {product.specs.map((x, index) => (
+                                                            <tr key={index}>
+                                                                <td style={{ background: '#F5F5F5', width: '50%' }}>{x.name}</td>
+                                                                <td style={{ width: '50%' }}>{x.description}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    )
+                                }
                                 <div className='content-d mt-4'>
-                                    <h6 style={{ fontSize: '0.85rem', padding: '12px 0', background: '#111', borderRadius: '3px' }}
-                                        className='fw-bold text-white px-2' >DESCRIPCIÓN</h6>
                                     {product.photos.map((photo, index) => (
                                         <img
                                             key={index}
@@ -531,7 +535,7 @@ export const DetailsApp = () => {
                         </div>
                     </div>
                     <br />
-                    <div className='content-buy' style={{ display: `${hideBuyContent ? 'block' : 'none'}` }}>
+                    <div className={`content-buy ${hideBuyContent ? 'content-buy-active' : ''}`}>
                         <div style={{ fontWeight: 'bold' }}>
                             <span>S/.</span>
                             <span style={{ fontSize: '1.4rem' }}>

@@ -94,13 +94,14 @@ export const ListApp = () => {
                             <div className='top-list'>
                                 <span className='ms-2 fw-bold'>{products && products.length} Productos</span>
                                 <select>
-                                    <option value="1">Best Selling</option>
-                                    <option value="2">Alphabetically, A-Z</option>
-                                    <option value="3">Alphabetically, Z-A</option>
-                                    <option value="4">Price, low to high</option>
-                                    <option value="5">Price, high to low</option>
-                                    <option value="6">Price, old to new</option>
-                                    <option value="7">Price, new to old</option>
+                                    <option value="1">Más vendidos</option>
+                                    <option value="2">Alfabéticamente, A-Z</option>
+                                    <option value="3">Alfabéticamente, Z-A</option>
+                                    <option value="4">Precio, de menor a mayor</option>
+                                    <option value="5">Precio, de mayor a menor</option>
+                                    <option value="6">Precio, de antiguo a nuevo</option>
+                                    <option value="7">Precio, de nuevo a antiguo</option>
+
                                 </select>
                             </div>
                             {
@@ -118,9 +119,10 @@ export const ListApp = () => {
                                 {
                                     products && products.map((item, index) => (
                                         <div key={index} className='item-product' onClick={() => navigate(`/details/${item._id}`)}>
-                                            <img src={item.imgs[0]} alt="" />
+                                            <img className='img-product img-product-1' src={item.imgs[0]} alt="img-list" />
+                                            <img className='img-product img-product-2' src={item.imgs[1]} alt="img-list" />
                                             {
-                                                item.isNew && (<span className='label-new'>New</span>)
+                                                item.isNew && (<span className='label-new'>Nuevo</span>)
                                             }
                                             <div className='content-list'>
                                                 <div>
