@@ -25,9 +25,6 @@ export const DetailsApp = () => {
         now.setDate(now.getDate() + 1);
         return now;
     }
-    useEffect(() => {
-        console.log(hideBuyContent);
-    }, [hideBuyContent])
     const colors = {
         '#000': 'Negro',
         '#FDE4D3': 'Durazno',
@@ -47,7 +44,6 @@ export const DetailsApp = () => {
     const getProduct = () => {
         axios.get(`${CONFIG.uri}/products/${id}`)
             .then(res => {
-                console.log(res.data)
                 setProduct(res.data);
                 if (res.data.variants) {
                     const obj = Object.keys(res.data.variants).map(x => x);

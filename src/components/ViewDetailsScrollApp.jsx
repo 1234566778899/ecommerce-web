@@ -9,7 +9,6 @@ export const ViewDetailsScrollApp = ({ imgs, setCurrent, current }) => {
     const navigate = useNavigate();
     const checkScroll = () => {
         const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-        console.log(scrollWidth);
         setShowLeft(scrollLeft > 0 && scrollLeft < scrollWidth);
         setShowRight(scrollLeft + clientWidth < scrollWidth - 50);
     };
