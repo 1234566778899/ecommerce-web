@@ -77,6 +77,15 @@ export const DetailsApp = () => {
         }
         setVisibleCart(true);
     };
+    const getIndexImage = (num) => {
+        let newIndex = imgCurrent + num;
+        if (newIndex >= product.imgs.length) {
+            newIndex = 0;
+        } else if (newIndex < 0) {
+            newIndex = product.imgs.length - 1;
+        }
+        setImgCurrent(newIndex);
+    };
 
     const buyNow = () => {
         const item = {
@@ -130,7 +139,6 @@ export const DetailsApp = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
     return product && (
         <>
             <div className='inter'>
@@ -152,33 +160,69 @@ export const DetailsApp = () => {
 
                 <div style={{ background: '#F8F8F8' }}>
                     <div className="container">
-                        <div className='title-details mt-3'>
-                            <h1 className='fw-bold' style={{ fontSize: '1.6em' }}>{product.name}</h1>
-                            <p className='mt-3' style={{ fontSize: '1.1rem' }}>Desde S/. {product.price.toFixed(2)}</p>
-                        </div>
                         <div className='content-details'>
                             <div>
-                                <div className="content-d slider">
-                                    <img
-                                        src={product.imgs[imgCurrent]}
-                                        alt="img"
-                                        className='img-details'
-                                    />
-                                    <div className='btn-rows'>
-                                        <button onClick={() => setImgCurrent(prev => prev - 1 < 0 ? 0 : prev - 1)}><i className="fa-solid fa-chevron-left"></i></button>
-                                        <button onClick={() => setImgCurrent(prev => prev + 1 >= product.imgs.length ? 0 : prev + 1)}><i className="fa-solid fa-chevron-right"></i></button>
+                                <div className="slider-wrapper">
+                                    <div className="content-d slider">
+                                        {product.imgs.map((x, index) => (
+                                            <img
+                                                id={`slider-${index + 1}`} // IDs 1-based para tu CSS
+                                                key={index}
+                                                src={x}
+                                                alt="img"
+                                                className="img-details"
+                                            />
+                                        ))}
+                                        <div className="btn-rows">
+                                            <a
+                                                href={`#slider-${((imgCurrent - 1 + product.imgs.length) % product.imgs.length) + 1
+                                                    }`}
+                                                onClick={(e) => {
+                                                    setImgCurrent(prev =>
+                                                        (prev - 1 + product.imgs.length) % product.imgs.length
+                                                    );
+                                                }}
+                                            >
+                                                <i className="fa-solid fa-chevron-left"></i>
+                                            </a>
+                                            <a
+                                                href={`#slider-${imgCurrent + 1}`}
+                                                onClick={(e) => {
+                                                    setImgCurrent(prev => ((prev + 1 + product.imgs.length) % product.imgs.length));
+                                                }}
+                                            >
+                                                <i className="fa-solid fa-chevron-right"></i>
+                                            </a>
+                                        </div>
+
                                     </div>
+                                    <div>
+
+                                    </div>
+                                    <div className='slider-nav'>
+                                        {
+                                            product.imgs.map((x, index) => (
+                                                <a key={index} href={`#slider-${index + 1}`}></a>
+                                            ))
+                                        }
+                                    </div>
+
                                 </div>
-                                <ViewDetailsScrollApp
-                                    imgs={product.imgs}
-                                    setCurrent={setImgCurrent}
-                                    current={imgCurrent}
-                                />
-                                <h1 className='fw-bold mt-5 title-name' style={{ fontSize: '1.6em' }}>{product.name}</h1>
+                                <div className='slider-nav-img'>
+                                    {
+                                        product.imgs.map((x, index) => (
+                                            <a key={index} href={`#slider-${index + 1}`} onClick={() => setImgCurrent(index)}>
+                                                <img src={x} alt="img" className={`${imgCurrent == index ? 'img-current' : ''}`} />
+                                            </a>
+                                        ))
+                                    }
+                                </div>
+                                <h1 className='fw-bold mt-5 title-name' style={{ fontSize: '2em', textTransform: 'uppercase' }}>
+                                    {product.name}</h1>
                                 <div className="content-d buy-mobile">
                                     {product.variants && (
                                         <div className='choose mt-4'>
-                                            <div>
+                                            <div className='mt-2 ps-2'>
                                                 <span style={{ fontWeight: 'bold' }}>
                                                     Elige el color:{' '}
                                                 </span>
@@ -330,8 +374,8 @@ export const DetailsApp = () => {
                                 {
                                     product.specs.length > 1 && (
                                         <div className='content-d'>
-                                            <h6 style={{ fontSize: '0.85rem', padding: '12px 0', background: '#111', borderRadius: '3px' }}
-                                                className='fw-bold text-white px-2' >DETALLES DEL PRODUCTO</h6>
+                                            <h6 style={{ padding: '12px 0', fontSize: '1.2rem' }}
+                                                className='fw-bold px-2' >Detalles del producto</h6>
                                             <div>
                                                 <table className='table'>
                                                     <tbody>
@@ -357,13 +401,16 @@ export const DetailsApp = () => {
                                         />
                                     ))}
                                 </div>
+
                             </div>
                             <div>
                                 <div style={{ position: 'sticky', top: '2px' }}>
                                     <div className="content-d content-desk">
-                                        {/* Variantes de color */}
+                                        <div style={{ padding: '20px' }}>
+                                            <h1 className='fw-bold' style={{ fontSize: '1.6em', textTransform: 'uppercase' }}>{product.name}</h1>
+                                        </div>
                                         {product.variants && (
-                                            <div style={{ padding: '20px' }}>
+                                            <div style={{ padding: '5px 20px' }}>
                                                 <div>
                                                     <span style={{ fontWeight: 'bold' }}>
                                                         Elige el color:{' '}

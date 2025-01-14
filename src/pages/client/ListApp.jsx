@@ -146,12 +146,12 @@ export const ListApp = () => {
                                                     <div className='mt-2' style={{ fontSize: '0.85rem' }}>
                                                         {
                                                             Array.from({ length: item.stars }).map((_, index) => (
-                                                                <i className="fa-solid fa-star"></i>
+                                                                <i key={index} className="fa-solid fa-star"></i>
                                                             ))
                                                         }
                                                         {
                                                             Array.from({ length: 5 - item.stars }).map((_, index) => (
-                                                                <i className="fa-regular fa-star"></i>
+                                                                <i key={index} className="fa-regular fa-star"></i>
                                                             ))
                                                         }
 
