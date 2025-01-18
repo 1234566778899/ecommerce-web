@@ -108,7 +108,7 @@ export const PopCartApp = ({ close }) => {
                                     </div>
                                 ))
                             }
-                            <button onClick={() => { close(); setIsForm(true); }} className='btn-checkout' style={{ position: 'relative' }}>CHECKOUT
+                            <button onClick={() => { close(); setIsForm(true); }} className='btn-checkout' style={{ position: 'relative' }}>FINALIZAR COMPRA
                                 <i className="fa-solid fa-lock" style={{ position: 'absolute', right: '20px' }}></i>
                             </button>
                         </div>

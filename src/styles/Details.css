@@ -341,16 +341,19 @@
     width: 100%;
     padding: 10px 0;
     border: none;
+    border-radius: 3px;
 }
 
 .btn-fixed>button:first-child {
     background-color: white;
     border: 1px solid gray;
+    margin-right: 1px;
 }
 
 .btn-fixed>button:last-child {
     color: white;
     background-color: #393939;
+    margin-left: 1px;
 }
 
 .content-mobile {

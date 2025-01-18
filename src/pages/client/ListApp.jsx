@@ -47,7 +47,7 @@ export const ListApp = () => {
                 <br />
                 <div className="container">
                     <span style={{ display: 'flex' }}>
-                        <h1>Todos</h1>
+                        <h1>Productos</h1>
                         <span className='fw-bold'>({products && products.length})</span>
                     </span>
                     <div className='tab-filter'>
@@ -55,7 +55,7 @@ export const ListApp = () => {
                             <i className="fa-solid fa-sliders"></i>
                             <span className='ms-3'>Filtrar</span>
                         </button>
-                        <span>35 Productos</span>
+                        <span>{products && products.length} Productos</span>
                     </div>
                     <div className='content-products'>
                         <div className='menu-filter'>

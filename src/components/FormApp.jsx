@@ -93,7 +93,7 @@ export const FormApp = ({ close }) => {
                                 <div className='form-item'>
                                     <label>Correo electrónico</label>
                                     <div>
-                                        <i className="fa-solid fa-user"></i>
+                                        <i className="fa-solid fa-envelope"></i>
                                         <input type="email" placeholder='Correo electrónico' {...register('email', { required: true })} />
                                     </div>
                                     <span style={{ fontSize: '0.85rem' }}>Aqui le llegará el estado de su pedido</span>
@@ -104,7 +104,7 @@ export const FormApp = ({ close }) => {
                                 <div className='form-item'>
                                     <label>Dirección</label>
                                     <div>
-                                        <i className="fa-solid fa-user"></i>
+                                        <i className="fa-solid fa-location-dot"></i>
                                         <input type="text" placeholder='Calle 123, Distrito, Provincia'{...register('address', { required: true })} />
                                     </div>
                                     {
@@ -112,7 +112,7 @@ export const FormApp = ({ close }) => {
                                     }
                                 </div>
 
-                                <button className='btn-finish'>VALIDAR INFORMACIÓN</button>
+                                <button className='btn-finish'>Continuar</button>
                             </form>
                         </div>
                     )

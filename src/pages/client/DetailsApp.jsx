@@ -14,33 +14,19 @@ import { PopCartApp } from '../../components/PopCartApp';
 export const DetailsApp = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
-    const targetDateRef = useRef(calculateTargetDate());
     const { cart, setCart, setVisibleCart, setIsForm } = useContext(MainContext);
     const navigate = useNavigate();
     const footerRef = useRef(null);
     const [hideBuyContent, setHideBuyContent] = useState(false);
-
-    function calculateTargetDate() {
-        const now = new Date();
-        now.setDate(now.getDate() + 1);
-        return now;
-    }
     const colors = {
         '#000': 'Negro',
         '#FDE4D3': 'Durazno',
         '#B970C7': 'Púrpura',
         '#CED9C7': 'Verde'
     }
-
     const [quantity, setQuantity] = useState(1);
     const [imgCurrent, setImgCurrent] = useState(0);
     const [variantCurrent, setVariantCurrent] = useState({});
-    const [timeLeft, setTimeLeft] = useState({
-        hours: '00',
-        minutes: '00',
-        seconds: '00'
-    });
-
     const getProduct = () => {
         axios.get(`${CONFIG.uri}/products/${id}`)
             .then(res => {
@@ -77,16 +63,6 @@ export const DetailsApp = () => {
         }
         setVisibleCart(true);
     };
-    const getIndexImage = (num) => {
-        let newIndex = imgCurrent + num;
-        if (newIndex >= product.imgs.length) {
-            newIndex = 0;
-        } else if (newIndex < 0) {
-            newIndex = product.imgs.length - 1;
-        }
-        setImgCurrent(newIndex);
-    };
-
     const buyNow = () => {
         const item = {
             name: product.name,
@@ -108,27 +84,13 @@ export const DetailsApp = () => {
 
     useEffect(() => {
         getProduct();
-        const interval = setInterval(() => {
-            const now = new Date();
-            const difference = targetDateRef.current - now;
-            if (difference > 0) {
-                const hours = String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, '0');
-                const minutes = String(Math.floor((difference / 1000 / 60) % 60)).padStart(2, '0');
-                const seconds = String(Math.floor((difference / 1000) % 60)).padStart(2, '0');
-                setTimeLeft({ hours, minutes, seconds });
-            } else {
-                setTimeLeft({ hours: '00', minutes: '00', seconds: '00' });
-                clearInterval(interval);
-            }
-        }, 1000);
-        return () => clearInterval(interval);
     }, []);
 
     useEffect(() => {
         const handleScroll = () => {
             if (!footerRef.current) return;
             const footerPosition = footerRef.current.getBoundingClientRect().top;
-            if (footerPosition > window.innerHeight - 400) {
+            if (footerPosition > window.innerHeight - 800) {
                 setHideBuyContent(false);
             } else {
                 setHideBuyContent(true);
@@ -143,11 +105,11 @@ export const DetailsApp = () => {
         <>
             <div className='inter'>
                 <NavbarApp />
-                <div style={{ borderBottom: '1px solid #EDEDED' }}>
+                <div className='mt-2' style={{ borderBottom: '1px solid #EDEDED' }}>
                     <div className='container' style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem' }}>
                         <div style={{ padding: '15px 0px', display: 'flex', alignItems: 'center' }}>
-                            <span className='home-label' onClick={() => navigate('/')}>
-                                <i className="fa-solid fa-house me-2"></i>Home
+                            <span className='home-label' onClick={() => navigate('/products')}>
+                                <i className="fa-solid fa-house me-2"></i>Inicio
                             </span>
                             <span
                                 style={{
@@ -217,7 +179,7 @@ export const DetailsApp = () => {
                                         ))
                                     }
                                 </div>
-                                <h1 className='fw-bold mt-5 title-name' style={{ fontSize: '2em', textTransform: 'uppercase' }}>
+                                <h1 className='fw-bold mt-5 title-name px-2' style={{ fontSize: '1.5em', textTransform: 'uppercase' }}>
                                     {product.name}</h1>
                                 <div className="content-d buy-mobile">
                                     {product.variants && (
@@ -331,10 +293,11 @@ export const DetailsApp = () => {
                                             </div>
 
                                             <button
+                                                ref={footerRef}
                                                 onClick={buyNow}
                                                 className='btn-buy'
                                             >
-                                                Comprar ahora - Paga al recibir
+                                                Comprar ahora
                                             </button>
                                         </div>
                                         <div className='d-flex mt-4'>
@@ -346,29 +309,21 @@ export const DetailsApp = () => {
                                             </div>
                                             <div className='ms-3'>
                                                 <h6 className='fw-bold'>
-                                                    Entrega estimada entre 2 a 3 días
+                                                    Delivery a todo Lima Metropolitana
                                                 </h6>
                                                 <p style={{ fontSize: '0.9rem' }}>
-                                                    <strong>Compra con Confianza:</strong> Realiza el pago al momento de recibir tu producto en casa 🏠
+                                                    Entrega en menos de 48 horas
                                                 </p>
                                                 <a
                                                     style={{ color: 'gray', fontSize: '0.9rem' }}
                                                     href="#"
+                                                    onClick={() => navigate('/about')}
                                                 >
                                                     Ver información de la tienda
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr style={{ color: '#ECECEC' }} />
 
-                                        <p style={{ fontSize: '1.1rem' }}>
-                                            ¿Quieres entrega al día siguiente? ¡Apresúrate!
-                                        </p>
-                                        <div ref={footerRef} className='hour' style={{ fontSize: '1.1rem' }}>
-                                            <span>{timeLeft.hours}h</span>:
-                                            <span>{timeLeft.minutes}m</span>:
-                                            <span>{timeLeft.seconds}s</span>
-                                        </div>
                                     </div>
                                 </div>
                                 {
@@ -523,7 +478,7 @@ export const DetailsApp = () => {
                                                     onClick={buyNow}
                                                     className='btn-buy'
                                                 >
-                                                    Comprar ahora - Paga al recibir
+                                                    Comprar ahora
                                                 </button>
                                             </div>
 
@@ -541,26 +496,18 @@ export const DetailsApp = () => {
                                                         Delivery a todo Lima Metropolitana
                                                     </h6>
                                                     <p style={{ fontSize: '0.9rem' }}>
-                                                        Generalmente listo en 48 horas
+                                                        Entrega en menos de 48 horas
                                                     </p>
                                                     <a
                                                         style={{ color: 'gray', fontSize: '0.9rem' }}
                                                         href="#"
+                                                        onClick={() => navigate('/about')}
                                                     >
                                                         Ver información de la tienda
                                                     </a>
                                                 </div>
                                             </div>
                                             <hr style={{ color: '#ECECEC' }} />
-
-                                            <p style={{ fontSize: '1.1rem' }}>
-                                                ¿Quieres entrega al día siguiente? ¡Apresúrate!
-                                            </p>
-                                            <div className='hour' style={{ fontSize: '1.1rem' }}>
-                                                <span>{timeLeft.hours}h</span>:
-                                                <span>{timeLeft.minutes}m</span>:
-                                                <span>{timeLeft.seconds}s</span>
-                                            </div>
                                         </div>
                                     </div>
 
