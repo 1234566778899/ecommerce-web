@@ -60,7 +60,7 @@ export const ListApp = () => {
                     <div className='content-products'>
                         <div className='menu-filter'>
                             <div className='card-filter'>
-                                <h6 className='fw-bold'>BRAND</h6>
+                                <h6 className='fw-bold'>MARCA</h6>
                                 <div className='items-filter items-brand'>
                                     {
                                         brands.map((x, index) => (

@@ -406,7 +406,7 @@ export const DetailsApp = () => {
                             <div>
                                 <div style={{ position: 'sticky', top: '2px' }}>
                                     <div className="content-d content-desk">
-                                        <div style={{ padding: '20px' }}>
+                                        <div style={{ padding: '0px 20px' }}>
                                             <h1 className='fw-bold' style={{ fontSize: '1.6em', textTransform: 'uppercase' }}>{product.name}</h1>
                                         </div>
                                         {product.variants && (
@@ -453,7 +453,7 @@ export const DetailsApp = () => {
                                             </div>
                                         )}
                                         <div style={{ border: '1px solid #F8F8F8' }}></div>
-                                        <div style={{ padding: '30px 30px' }}>
+                                        <div style={{ padding: '20px 30px' }}>
                                             <div >
                                                 <div>
                                                     <span

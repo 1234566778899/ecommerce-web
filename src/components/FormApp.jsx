@@ -67,7 +67,7 @@ export const FormApp = ({ close }) => {
                                     <span className='fw-bold'>S/. {getTotal().toFixed(2)}</span>
                                 </div>
                             </div>
-                            <h5 className='mt-2 mb-3 fw-bold'>¡Ya casi terminas! Completa tus Datos</h5>
+
                             <form onSubmit={handleSubmit(createOrder)}>
                                 <div className='form-item'>
                                     <label>Nombres y Apellidos</label>
