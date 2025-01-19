@@ -38,8 +38,8 @@ export const ListApp = () => {
         getProducts();
     }, [])
     return (
-        <>
-            <div className='inter' style={{ background: '#F8F8F8' }}>
+        <div className='inter'>
+            <div style={{ background: '#F8F8F8' }}>
                 <NavbarApp />
             </div>
             <TabFilterApp visible={filterVisible} setVisible={setFilterVisible} />
@@ -139,7 +139,7 @@ export const ListApp = () => {
                                                             </div>
                                                         )
                                                     }
-                                                    <div className='mt-1' style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>
+                                                    <div className='mt-1 platform' style={{ fontSize: '1.2rem' }}>
                                                         <span style={{ fontSize: '0.9rem' }}>S/. </span>{item.price.toFixed(2)}
                                                         <span className='price-before'>{item.priceCompare.toFixed(2)}</span>
                                                     </div>
@@ -181,6 +181,6 @@ export const ListApp = () => {
                 </div>
             </div>
             <FooterApp />
-        </>
+        </div>
     )
 }

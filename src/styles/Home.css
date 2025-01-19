@@ -23,6 +23,10 @@
     font-family: 'Satoshi', sans-serif;
 }
 
+.platform {
+    font-family: 'Platform', sans-serif;
+}
+
 .text-wai {
     background: linear-gradient(to right, #0b8fe3, #25cc88);
     -webkit-background-clip: text;
@@ -582,7 +586,7 @@
 }
 
 .content-list {
-    padding: 20px;
+    padding: 10px;
     position: relative;
     display: flex;
     flex-direction: column;

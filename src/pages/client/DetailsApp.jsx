@@ -158,9 +158,6 @@ export const DetailsApp = () => {
                                         </div>
 
                                     </div>
-                                    <div>
-
-                                    </div>
                                     <div className='slider-nav'>
                                         {
                                             product.imgs.map((x, index) => (
@@ -179,7 +176,7 @@ export const DetailsApp = () => {
                                         ))
                                     }
                                 </div>
-                                <h1 className='fw-bold mt-5 title-name px-2' style={{ fontSize: '1.5em', textTransform: 'uppercase' }}>
+                                <h1 className='fw-bold mt-5 title-name px-2 platform' style={{ fontSize: '1.5em', textTransform: 'uppercase' }}>
                                     {product.name}</h1>
                                 <div className="content-d buy-mobile">
                                     {product.variants && (
@@ -231,9 +228,9 @@ export const DetailsApp = () => {
                                             <div>
                                                 <span
                                                     style={{
-                                                        fontSize: '1.3rem',
-                                                        fontWeight: 'bold',
+                                                        fontSize: '1.5rem'
                                                     }}
+                                                    className='platform'
                                                 >
                                                     S/. {product.price.toFixed(2)}
                                                 </span>{' '}
@@ -284,7 +281,7 @@ export const DetailsApp = () => {
                                                 <div className='w-100'>
                                                     <button
                                                         onClick={addCart}
-                                                        className='btn-add-cart'
+                                                        className='btn-add-cart platform'
                                                     >
                                                         <i className="fa-solid fa-cart-shopping me-2"></i>
                                                         Agregar al carrito
@@ -295,7 +292,7 @@ export const DetailsApp = () => {
                                             <button
                                                 ref={footerRef}
                                                 onClick={buyNow}
-                                                className='btn-buy'
+                                                className='btn-buy platform'
                                             >
                                                 Comprar ahora
                                             </button>
@@ -362,7 +359,7 @@ export const DetailsApp = () => {
                                 <div style={{ position: 'sticky', top: '2px' }}>
                                     <div className="content-d content-desk">
                                         <div style={{ padding: '0px 20px' }}>
-                                            <h1 className='fw-bold' style={{ fontSize: '1.6em', textTransform: 'uppercase' }}>{product.name}</h1>
+                                            <h1 className='fw-bold platform' style={{ fontSize: '1.6em', textTransform: 'uppercase' }}>{product.name}</h1>
                                         </div>
                                         {product.variants && (
                                             <div style={{ padding: '5px 20px' }}>
@@ -412,9 +409,10 @@ export const DetailsApp = () => {
                                             <div >
                                                 <div>
                                                     <span
+                                                        className='platform'
                                                         style={{
-                                                            fontSize: '1.3rem',
-                                                            fontWeight: 'bold',
+                                                            fontSize: '1.5rem',
+                                                            fontWeight: '',
                                                         }}
                                                     >
                                                         S/. {product.price.toFixed(2)}
@@ -463,7 +461,7 @@ export const DetailsApp = () => {
                                                             </button>
                                                         </div>
                                                     </div>
-                                                    <div className='w-100'>
+                                                    <div className='w-100 platform'>
                                                         <button
                                                             onClick={addCart}
                                                             className='btn-add-cart'
@@ -476,7 +474,7 @@ export const DetailsApp = () => {
 
                                                 <button
                                                     onClick={buyNow}
-                                                    className='btn-buy'
+                                                    className='btn-buy platform'
                                                 >
                                                     Comprar ahora
                                                 </button>
@@ -526,7 +524,7 @@ export const DetailsApp = () => {
                     </div>
                     <br />
                     <div className={`content-buy ${hideBuyContent ? 'content-buy-active' : ''}`}>
-                        <div style={{ fontWeight: 'bold' }}>
+                        <div className='platform' style={{ fontWeight: 'bold' }}>
                             <span>S/.</span>
                             <span style={{ fontSize: '1.4rem' }}>
                                 {product.price.toFixed(2)}
@@ -535,8 +533,8 @@ export const DetailsApp = () => {
                                 {product.priceCompare.toFixed(2)}
                             </span>
                         </div>
-                        <div className='btn-fixed mt-1'>
-                            <button onClick={addCart}>Agregar al carro</button>
+                        <div className='btn-fixed mt-1 platform'>
+                            <button onClick={addCart}>Agregar al carrito</button>
                             <button onClick={buyNow}>Comprar</button>
                         </div>
                     </div>

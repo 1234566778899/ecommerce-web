@@ -76,7 +76,7 @@ export const NavbarApp = () => {
                                     )
                                 }
                             </span>
-                            <span className='logo' style={{ cursor: 'pointer' }} onClick={() => navigate('/home')}>KAWISHOP</span>
+                            <span className='logo platform' style={{ cursor: 'pointer' }} onClick={() => navigate('/home')}>KAWISHOP</span>
                         </div>
                         <div className='search-bar'>
                             <input type="text" placeholder="¿Que estas buscando?" />
