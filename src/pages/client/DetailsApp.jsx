@@ -105,7 +105,7 @@ export const DetailsApp = () => {
         <>
             <div className='inter'>
                 <NavbarApp />
-                <div className='mt-2' style={{ borderBottom: '1px solid #EDEDED' }}>
+                <div style={{ borderBottom: '1px solid #EDEDED' }}>
                     <div className='container' style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem' }}>
                         <div style={{ padding: '15px 0px', display: 'flex', alignItems: 'center' }}>
                             <span className='home-label' onClick={() => navigate('/products')}>

@@ -34,7 +34,7 @@ export const FormApp = ({ close }) => {
                     !validInfo && (
                         <div>
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <h5 className='fw-bold mb-4 text-center w-100'>¡PÍDELO AHORA! PAGA AL RECIBIR 🚚</h5>
+                                <h5 className='fw-bold mb-4 text-center w-100 platform'>¡PÍDELO AHORA! PAGA AL RECIBIR 🚚</h5>
                                 <button onClick={() => close()} className='btn-close'></button>
                             </div>
                             {
@@ -112,7 +112,7 @@ export const FormApp = ({ close }) => {
                                     }
                                 </div>
 
-                                <button className='btn-finish'>Continuar</button>
+                                <button className='btn-finish platform'>Continuar</button>
                             </form>
                         </div>
                     )

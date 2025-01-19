@@ -24,7 +24,7 @@ export const PopCartApp = ({ close }) => {
             <div onClick={(e) => e.stopPropagation()}>
                 <div
                     style={{ borderBottom: '1px solid #DCDCDC', display: 'flex', justifyContent: 'space-between', padding: '15px' }}>
-                    <span style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>Tu carrito</span>
+                    <span className='platform' style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>Tu carrito</span>
                     <button
                         onClick={() => close()}
                         style={{ background: 'none', border: 'none' }}>

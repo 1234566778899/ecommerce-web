@@ -47,7 +47,7 @@ export const ListApp = () => {
                 <br />
                 <div className="container">
                     <span style={{ display: 'flex' }}>
-                        <h1>Productos</h1>
+                        <h1 className='platform'>Productos</h1>
                         <span className='fw-bold'>({products && products.length})</span>
                     </span>
                     <div className='tab-filter'>

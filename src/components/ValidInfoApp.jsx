@@ -73,7 +73,10 @@ export const ValidInfoApp = ({ order, close }) => {
                 <button onClick={() => close()} style={{ border: 'none', background: 'none' }}>
                     <i className="fa-solid fa-arrow-left"></i>
                 </button>
-                <h5 className='fw-bold w-100 text-center'>Confirma tu pedido</h5>
+                <h5 className='fw-bold w-100 text-center platform'>Confirma tu pedido</h5>
+                <button onClick={() => close()} style={{ border: 'none', background: 'none' }}>
+                    <i className="fa-solid fa-xmark"></i>
+                </button>
             </div>
             <br />
             <h6 className='text-start fw-bold'>¿Cómo quieres pagar?</h6>
@@ -168,7 +171,7 @@ export const ValidInfoApp = ({ order, close }) => {
                     <span>Gratis</span>
                 </div>
             </div>
-            <button className='btn-finish' onClick={() => createOrder()}>
+            <button className='btn-finish platform' onClick={() => createOrder()}>
                 {isLoading && (<i className="fa-solid fa-spinner icon-load me-2"></i>)}
                 FINALIZAR COMPRA - S/. 15.00</button>
         </div>

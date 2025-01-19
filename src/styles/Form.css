@@ -107,7 +107,6 @@
     border: none;
     border-radius: 4px;
     transition: filter 0.2s ease;
-    font-weight: bold;
 }
 
 .btn-finish:hover {
